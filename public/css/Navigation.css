@@ -1,0 +1,28 @@
+.header {
+    background-color: #0e3d69;
+    padding-top: .5em;
+    padding-left: .5em;
+    padding-bottom: .5em; 
+}
+
+.logo {
+    text-align: center;
+}
+
+.navigation {
+    /* background-color: black; */
+}
+
+
+.navigation li{
+    display: inline-block;
+    /* list-style-type: none; */
+    /* margin-left: 0 auto;
+    margin-right: 0 auto;
+    text-align: center; */
+    color: whitesmoke;
+    float: left;
+    padding: 1em;
+    font-variant: small-caps;
+    font-size: 1.2em;
+}
