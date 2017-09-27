@@ -11,17 +11,15 @@
 
 .navigation {
     /* background-color: black; */
+    text-align: center;
 }
 
-
+.navigation ul {
+    padding-left: 0px;
+}
 .navigation li{
     display: inline-block;
-    /* list-style-type: none; */
-    /* margin-left: 0 auto;
-    margin-right: 0 auto;
-    text-align: center; */
     color: whitesmoke;
-    float: left;
     padding: 1em;
     font-variant: small-caps;
     font-size: 1.2em;

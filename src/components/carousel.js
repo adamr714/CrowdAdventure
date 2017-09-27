@@ -2,28 +2,28 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Carousel } from 'react-responsive-carousel';
  
-class DemoCarousel extends Component {
+class HomeCarousel extends Component {
     render() {
         return (
-            <Carousel>
+            <Carousel infiniteLoop autoPlay interval={5000} showIndicators={false} showThumbs={false} showStatus={false}>
                 <div>
-                    <img src="assets/1.jpeg" />
-                    <p className="legend">Legend 1</p>
+                    <img src="./images/SpacePunks.png" />
+                    {/* <p className="legend">Coming Soon - Space Punks!</p> */}
                 </div>
                 <div>
-                    <img src="assets/2.jpeg" />
-                    <p className="legend">Legend 2</p>
+                    <img src="./images/Parallax.png" />
+                    {/* <p className="legend">Coming Soon - Parallax</p> */}
                 </div>
-                <div>
+                {/* <div>
                     <img src="assets/3.jpeg" />
                     <p className="legend">Legend 3</p>
-                </div>
+                </div> */}
             </Carousel>
         );
     }
-});
+};
  
-ReactDOM.render(<DemoCarousel />, document.querySelector('.demo-carousel'));
+export default HomeCarousel;
  
 // Don't forget to include the css in your page
  

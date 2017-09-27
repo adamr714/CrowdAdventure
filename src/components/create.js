@@ -1,0 +1,32 @@
+import React from 'react';
+
+export class Create extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+
+      };
+      // this.onClick = this.onClick.bind(this);
+  }
+
+
+      render() {
+        return(
+          <div>
+             <h2>Create a Project</h2>
+             <form>
+             </form>    
+          </div>
+        );
+      }
+  
+}
+
+export default Create;
+
+
+
+
+     
+
+      
