@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React from 'react'
+import {Link} from 'react-router';
 
 export class Navigation extends React.Component {
   constructor(props) {
@@ -9,6 +9,7 @@ export class Navigation extends React.Component {
       };
       // this.onClick = this.onClick.bind(this);
   }
+
 
 
       render() {
@@ -23,8 +24,8 @@ export class Navigation extends React.Component {
               <div className="row">
                 <div className="col-12 navigation">
                   <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
+                    <li><Link to={'/'}>Home</Link></li>
+                    <li><Link to={'/about/'}>About Us</Link></li>
                     <li>Create</li>
                     <li>View Projects</li>
                     <li>Log In</li>

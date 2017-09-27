@@ -1,6 +1,5 @@
 import React from 'react';
 import Navigation from './Navigation';
-import HomeCarousel from './carousel'
 
 import {Router, Route, hashHistory} from 'react-router';
 
@@ -19,7 +18,9 @@ export class Master extends React.Component {
           return(
               <div>
                     <Navigation />
-                    <HomeCarousel />
+                    <div>
+                        {this.props.children}
+                    </div>
               </div>    
           );
         }
