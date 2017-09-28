@@ -25,11 +25,11 @@ export class Navigation extends React.Component {
                 <div className="col-12 navigation">
                   <ul>
                     <li><Link to={'/'}>Home</Link></li>
-                    <li><Link to={'/about/'}>About Us</Link></li>
-                    <li>Create</li>
-                    <li>View Projects</li>
-                    <li>Log In</li>
-                    <li>Sign Up</li>
+                    <li><Link to={'/about'}>About Us</Link></li>
+                    <li><Link to={'/create'}>Create</Link></li>
+                    <li><Link to={'/view'}>View Projects</Link></li>
+                    <li><Link to={'/login'}>Log In</Link></li>
+                    <li><Link to={'/signup'}>Sign Up</Link></li>
                   </ul>  
                 </div>  
 

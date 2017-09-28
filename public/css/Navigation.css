@@ -24,3 +24,16 @@
     font-variant: small-caps;
     font-size: 1.2em;
 }
+
+.navigation li a {
+    color: whitesmoke;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navigation li a:hover {
+    color: lightcoral;
+    text-decoration: none;
+    cursor: pointer;
+}
+
