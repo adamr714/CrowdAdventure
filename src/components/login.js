@@ -15,7 +15,6 @@ export class LogIn extends React.Component {
         return(
           <div>
              <div>
-                 <Navigation />
              </div>     
              <h2>Log In</h2>
              <form>
