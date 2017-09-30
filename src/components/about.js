@@ -1,4 +1,5 @@
 import React from 'react';
+import Navigation from './Navigation';
 
 export class About extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ export class About extends React.Component {
       render() {
         return(
           <div>
+            <Navigation />
              <h2>About Us</h2>
           </div>
         );

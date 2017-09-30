@@ -1,4 +1,5 @@
 import React from 'react';
+import Navigation from './Navigation';
 
 export class LogIn extends React.Component {
   constructor(props) {
@@ -13,6 +14,9 @@ export class LogIn extends React.Component {
       render() {
         return(
           <div>
+             <div>
+                 <Navigation />
+             </div>     
              <h2>Log In</h2>
              <form>
              </form>  

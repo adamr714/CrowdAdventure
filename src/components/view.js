@@ -1,4 +1,5 @@
 import React from 'react';
+import Navigation from './Navigation';
 
 export class ViewProjects extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ export class ViewProjects extends React.Component {
       render() {
         return(
           <div>
+            <Navigation />
              <h2>Current Projects</h2>
           </div>
         );

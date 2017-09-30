@@ -1,4 +1,6 @@
 import React from 'react';
+import Navigation from './Navigation';
+
 
 export class SignUp extends React.Component {
   constructor(props) {
@@ -13,6 +15,7 @@ export class SignUp extends React.Component {
       render() {
         return(
           <div>
+             <Navigation /> 
              <h2>Sign Up</h2>
              <form>
              </form>  

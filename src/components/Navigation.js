@@ -24,7 +24,7 @@ export class Navigation extends React.Component {
               <div className="row">
                 <div className="col-12 navigation">
                   <ul>
-                    <li><Link to={'/'}>Home</Link></li>
+                    <li><Link to={'/home'}>Home</Link></li>
                     <li><Link to={'/about'}>About Us</Link></li>
                     <li><Link to={'/create'}>Create</Link></li>
                     <li><Link to={'/view'}>View Projects</Link></li>

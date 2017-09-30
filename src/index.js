@@ -21,7 +21,7 @@ import SignUp from './components/signup';
 const routes = (
     <Router history={hashHistory}>
       <Route path="/" component={Master} />
-          <IndexRoute component={Home} />
+          <getIndexRoute component={Home} />
           <Route path="/" component={Home} />
           <Route path="/about" component={About} />
           <Route path="/create" component={Create} />

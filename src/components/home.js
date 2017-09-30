@@ -1,21 +1,27 @@
 import React from 'react';
 import HomeCarousel from './carousel'
+import Navigation from './Navigation';
 
 export class Home extends React.Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-      };
+    constructor(props) {
+        super(props);
+        this.state = {
+  
+        };
+        // this.onClick = this.onClick.bind(this);
+    }
+  
+  
+        render() {
+          return(
+            <div>
+               <HomeCarousel />
+               <form>
+               </form>  
+            </div>
+          );
+        }
+    
   }
-
-      render() {
-        return(
-          <div>
-            <h2>Home Page</h2>  
-            <HomeCarousel />
-          </div>
-        );
-      }
-}
 
 export default Home;
