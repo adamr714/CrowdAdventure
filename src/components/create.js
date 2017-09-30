@@ -1,5 +1,4 @@
 import React from 'react';
-import Navigation from './Navigation';
 
 export class Create extends React.Component {
   constructor(props) {
