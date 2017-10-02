@@ -1,5 +1,5 @@
 import React from 'react';
-
+import SignUpForm from './signupform';
 
 export class SignUp extends React.Component {
   constructor(props) {
@@ -15,8 +15,7 @@ export class SignUp extends React.Component {
         return(
           <div>
              <h2>Sign Up</h2>
-             <form>
-             </form>  
+             <SignUpForm /> 
           </div>
         );
       }

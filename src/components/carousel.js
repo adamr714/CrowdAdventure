@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import { Carousel } from 'react-responsive-carousel';
  
 class HomeCarousel extends Component {
@@ -7,11 +7,11 @@ class HomeCarousel extends Component {
         return (
             <Carousel infiniteLoop autoPlay interval={5000} showIndicators={false} showThumbs={false} showStatus={false}>
                 <div>
-                    <img src="./images/SpacePunks.png" />
+                    <img src="./images/SpacePunks.png" alt="Space Punks"/>
                     {/* <p className="legend">Coming Soon - Space Punks!</p> */}
                 </div>
                 <div>
-                    <img src="./images/Parallax.png" />
+                    <img src="./images/Parallax.png" alt="Parallax"/>
                     {/* <p className="legend">Coming Soon - Parallax</p> */}
                 </div>
                 {/* <div>
