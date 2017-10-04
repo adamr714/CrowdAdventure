@@ -45,6 +45,15 @@ class SignUpForm extends Component {
                                 console.log('it changed')
                                 onChange()
                             }}
+                            field='username'
+                            placeholder= 'User Name'
+                        />
+
+                        <Text
+                            onChange={(e, onChange) => {
+                                console.log('it changed')
+                                onChange()
+                            }}
                             field='password'
                             placeholder= 'Password'
                         />

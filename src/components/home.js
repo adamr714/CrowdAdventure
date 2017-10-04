@@ -1,6 +1,6 @@
 import React from 'react';
 import HomeCarousel from './carousel'
-
+import Card from './card'
 export class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -15,6 +15,7 @@ export class Home extends React.Component {
           return(
             <div>
                <HomeCarousel />
+               <Card />
                <form>
                </form>  
             </div>
