@@ -5,7 +5,6 @@ import { Form, Text } from 'react-form'
 class SignUpForm extends Component {
     constructor(props) {
         super(props);
-
     }
 
     render() {
@@ -14,7 +13,8 @@ class SignUpForm extends Component {
                 <div className=".col-4">
                 <Form
                     onSubmit={(values) => {
-                    console.log('Success!', values)
+                        console.log('Success!', values);
+                        console.log(`Submitting form within our control - ${values.name} - ${values.email} - ${values.password}`);
                     }}
                     validate={({ name, password }) => {
                     return {
@@ -31,7 +31,7 @@ class SignUpForm extends Component {
                             onChange={(e, onChange) => {
                                 console.log('it changed')
                                 onChange()
-                            }}
+                            }}                            
                             field='name'
                             placeholder= 'Name'
                         />
