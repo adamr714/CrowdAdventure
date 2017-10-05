@@ -3,6 +3,11 @@ import { Form, Text } from 'react-form'
 
 
 class SignUpForm extends Component {
+    constructor(props) {
+        super(props);
+
+    }
+
     render() {
         return (
             <div className=".col-12">

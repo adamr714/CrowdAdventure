@@ -1,14 +1,13 @@
 export const CREATE_USER = 'CREATE_USER';
-export const create = (name, email, password) => ({
+export const createUser = (name, email, password) => ({
     type: CREATE_USER,
-    create: create
+    createUser: {name, email, password}
 });
 
-
 export const USER_LOGIN = 'USER_LOGIN';
-export const login = (name, email, password) => ({
+export const loginUser = (email, password) => ({
     type: USER_LOGIN,
-    login: login
+    loginUser: {email, password}
 });
 
 
