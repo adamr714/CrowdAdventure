@@ -9,8 +9,8 @@ class SignUpForm extends Component {
 
     render() {
         return (
-            <div className=".col-12">
-                <div className=".col-4">
+            <div className="col-12">
+                <div className="col-4">
                 <Form
                     onSubmit={(values) => {
                         console.log('Success!', values);

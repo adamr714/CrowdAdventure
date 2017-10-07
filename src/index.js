@@ -38,18 +38,3 @@ const routes = (
 document.addEventListener('DOMContentLoaded', () =>
 ReactDOM.render(routes, document.getElementById('app'))
 );
-
-// ReactDOM.render(routes, document.getElementById('app'));
-// registerServiceWorker();
-
-
-
-
-// const routes = (
-//     <Router history={hashHistory}>
-//         <Route path="/emails" component={App}>
-//             <IndexRoute component={EmailListContainer} />
-//             <Route path=":emailId" component={EmailContainer} />
-//         </Route>
-//     </Router>
-// );
