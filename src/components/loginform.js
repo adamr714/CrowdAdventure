@@ -41,7 +41,7 @@ class LoginForm extends Component {
                         />
 
 
-                        <button type='submit'>Sign Up</button>
+                        <button type='submit' className="button">Sign Up</button>
                         </form>
                     )
                     }}

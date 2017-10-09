@@ -1,17 +1,4 @@
-
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {Router, Route, hashHistory, IndexRoute} from 'react-router';
-import {Provider} from 'react-redux';
-
-import './index.css';
-import store from './store';
-
-import SignUpForm from './components/signupform';
-import LoginForm from './components/loginform';
-
-// import registerServiceWorker from './registerServiceWorker';
-
+import React, { Component } from 'react';
 
 import Master from './components/master';
 import Home from './components/home';
@@ -20,8 +7,6 @@ import Create from './components/create';
 import ViewProjects from './components/view';
 import LogIn from './components/login';
 import SignUp from './components/signup';
-
-
 
 const routes = (
     <Router history={hashHistory}>
@@ -36,16 +21,4 @@ const routes = (
           <Route path="/signup" component={SignUp} />  
        </Route>           
     </Router>
-);
-
-document.addEventListener('DOMContentLoaded', () =>
-// ReactDOM.render(routes, document.getElementById('app'))
-
-ReactDOM.render(
-    <Provider store={store}>
-       {/* <LoginForm />  */}
-       <SignUpForm /> 
-       {/* <Master /> */}
-    </Provider>,
-    document.getElementById('app'))
 );
