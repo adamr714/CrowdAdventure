@@ -7,8 +7,6 @@ import {Provider} from 'react-redux';
 import './index.css';
 import store from './store';
 
-import SignUpForm from './components/signupform';
-import LoginForm from './components/loginform';
 
 // import registerServiceWorker from './registerServiceWorker';
 
@@ -43,9 +41,7 @@ document.addEventListener('DOMContentLoaded', () =>
 
 ReactDOM.render(
     <Provider store={store}>
-       {/* <LoginForm />  */}
-       <SignUpForm /> 
-       {/* <Master /> */}
+       {routes}
     </Provider>,
     document.getElementById('app'))
 );

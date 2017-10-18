@@ -1,5 +1,6 @@
 import React from 'react';
 import SignUpForm from './signupform';
+import {connect} from 'react-redux';
 
 export class SignUp extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ export class SignUp extends React.Component {
         return(
           <div>
              <h2>Sign Up</h2>
-              
+             <div className="message">{this.props.message}</div> 
              <SignUpForm /> 
           </div>
         );
@@ -23,4 +24,9 @@ export class SignUp extends React.Component {
   
 }
 
-export default SignUp;
+const traci = (state, props) => ({
+  data: state,
+  message: state.creationFailedMessage
+});
+
+export default connect(traci)(SignUp);

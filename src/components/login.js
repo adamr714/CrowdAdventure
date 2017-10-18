@@ -1,5 +1,8 @@
 import React from 'react';
 import LoginForm from './loginform';
+import {connect} from 'react-redux';
+
+
 
 export class LogIn extends React.Component {
   constructor(props) {
@@ -15,6 +18,7 @@ export class LogIn extends React.Component {
         return(
           <div>
              <h2>Log In</h2>
+             <div className="message">{this.props.message}</div>
              <LoginForm /> 
           </div>
         );
@@ -22,4 +26,11 @@ export class LogIn extends React.Component {
   
 }
 
-export default LogIn;
+const traci = (state, props) => ({
+    data: state,
+    message: state.creationSuccessmessage
+});
+
+
+
+export default connect(traci)(LogIn);

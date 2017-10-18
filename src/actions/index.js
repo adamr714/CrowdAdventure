@@ -1,10 +1,16 @@
 import fetch from 'isomorphic-fetch';
+import { hashHistory } from 'react-router';
 
 export const createUser = (name, email, password) => dispatch => {
-    const url = 'http://localhost:8080/users/register'
+    const url = 'users/register';
+    console.log(JSON.stringify({name: name, email: email, password: password}));
     return fetch(url, {
         method: "POST",
-        body: {name: name, email: email, password: password}  //just pass the instance
+        body: JSON.stringify({name: name, email: email, password: password}),  //just pass the instance
+        headers: new Headers({
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          })
       }).then(response => {
         if (!response.ok) {
             const error = new Error(response.statusText)
@@ -17,16 +23,14 @@ export const createUser = (name, email, password) => dispatch => {
         return response.json();
     })
     .then(data => {
-        return dispatch(createUserSuccess(createUser, data.description))
+        hashHistory.push('/login')
+        return dispatch(createUserSuccess())
     })
-    .catch(error => {
-        return dispatch(createUserFail(createUser, error))
+    .catch(async error => {
+        let json = await error.response.json();      
+        return dispatch(createUserFail(json.message))
     });
 };
-
-
-
-
 
 
 
@@ -43,8 +47,9 @@ export const createUserSuccess = () => ({
 });
 
 export const CREATE_USER_FAIL = 'CREATE_USER_FAIL';
-export const createUserFail = (error) => ({
+export const createUserFail = (error) => {
+    return {
     type: CREATE_USER_FAIL,
-    error: 'Could not create user'
-});
+    error: error
+}};
 
