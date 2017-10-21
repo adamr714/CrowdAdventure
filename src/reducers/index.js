@@ -18,7 +18,7 @@ export const reducer = (state=initialState, action) => {
 };
 
 function userCreated(action, state) {
-    let neville = Object.assign({}, state, {creationSuccessmessage: "You are now signed up, please log in."});
+    let neville = Object.assign({}, state, {creationSuccessMessage: "You are now signed up, please log in."});
     console.log("You are now signed up");
     return neville;
 }
