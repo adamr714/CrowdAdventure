@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch';
 import { hashHistory } from 'react-router';
+import http from '../services/http';
 
 export const createUser = (name, email, password) => dispatch => {
     const url = 'users/register';
@@ -32,6 +33,19 @@ export const createUser = (name, email, password) => dispatch => {
     });
 };
 
+export const userLogin = (email, password) => async dispatch => {
+    const url = 'users/login';
+
+    http.setCredentials(email, password);
+    try {
+        let loginResponse = await http.post(url);
+        console.log('Logged in successfully.');
+    } catch (err) {
+        console.log('Login failed miserably. Error: ' + err);
+    }
+};
+
+/*
 export const userLogin = (email, password) => dispatch => {
     const url = 'users/login';;
     // let email = 'email';
@@ -65,7 +79,7 @@ export const userLogin = (email, password) => dispatch => {
         return dispatch(loginFail(json.message))
     });
 };
-
+*/
 
 export const USER_LOGIN = 'USER_LOGIN';
 export const loginUser = (email, password) => ({
