@@ -40,8 +40,10 @@ export const userLogin = (email, password) => async dispatch => {
     try {
         let loginResponse = await http.post(url);
         console.log('Logged in successfully.');
+        return dispatch(loginSuccess());
     } catch (err) {
         console.log('Login failed miserably. Error: ' + err);
+        return dispatch(loginFail(err.response.json()));
     }
 };
 

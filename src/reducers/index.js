@@ -14,6 +14,11 @@ export const reducer = (state=initialState, action) => {
   
         return userCreationFailed(action, state);
     }
+
+    if (action.type === actions.LOGIN_SUCCESS) {
+              return userLoggedIn(action, state);
+          }
+         
     return state;
 };
 
@@ -24,10 +29,15 @@ function userCreated(action, state) {
 }
 
 function userCreationFailed(action, state) {
-   
     let adam = Object.assign({}, state, {creationFailedMessage: action.error});
     console.log("User Creation Failed");
     return adam;
+}
+
+function userLoggedIn(action, state) {
+    let loggedIn = Object.assign({}, state, {LoggedIn: true, loggedInMessage: "You are now logged in"});
+    console.log("User Logged In");
+    return loggedIn;
 }
 
 

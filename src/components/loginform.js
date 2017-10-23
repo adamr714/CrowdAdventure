@@ -30,7 +30,7 @@ export class LoginForm extends React.Component {
                 >
                     {({submitForm}) => {
                     return (
-                        <form onSubmit={submitForm}>
+                        <form onSubmit={submitForm} ref="loginForm">
                         <Text
                             onChange={(e, onChange) => {
                                 console.log('it changed')
