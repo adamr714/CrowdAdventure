@@ -1,4 +1,6 @@
 import React from 'react';
+import CreateForm from './createform.js';
+import {connect} from 'react-redux';
 
 export class Create extends React.Component {
   constructor(props) {
@@ -14,8 +16,7 @@ export class Create extends React.Component {
         return(
           <div>
              <h2>Create a Project</h2>
-             <form>
-             </form>    
+             <CreateForm /> 
           </div>
         );
       }

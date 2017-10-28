@@ -2,7 +2,7 @@ import * as actions from '../actions/index';
 import store from '../store'
 
 const initialState = {
-    LoggedIn: false
+    loggedIn: false
 };
 
 export const reducer = (state=initialState, action) => {
@@ -17,7 +17,11 @@ export const reducer = (state=initialState, action) => {
 
     if (action.type === actions.LOGIN_SUCCESS) {
               return userLoggedIn(action, state);
-          }
+    }
+
+   if (action.type === actions.LOGOUT_SUCCESS) {
+        return userLoggedOut(action, state);
+    } 
          
     return state;
 };
@@ -35,13 +39,14 @@ function userCreationFailed(action, state) {
 }
 
 function userLoggedIn(action, state) {
-    let loggedIn = Object.assign({}, state, {LoggedIn: true, loggedInMessage: "You are now logged in"});
+    let loggedIn = Object.assign({}, state, {loggedIn: true, loggedInMessage: "You are now logged in"});
     console.log("User Logged In");
     return loggedIn;
 }
 
+function userLoggedOut(action, state) {
+    let loggedOut = Object.assign({}, state, {loggedIn: false, loggedInMessage: "You are now logged out"});
+    console.log("User Logged Out");
+    return loggedOut;
+}
 
-
-// Send them to log in page
-// Display a success message 
-// Reset the form

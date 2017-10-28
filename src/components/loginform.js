@@ -32,19 +32,11 @@ export class LoginForm extends React.Component {
                     return (
                         <form onSubmit={submitForm} ref="loginForm">
                         <Text
-                            onChange={(e, onChange) => {
-                                console.log('it changed')
-                                onChange()
-                            }}
                             field='email'
                             placeholder= 'Email Address'
                         />
 
                         <Text
-                            onChange={(e, onChange) => {
-                                console.log('it changed')
-                                onChange()
-                            }}
                             field='password'
                             placeholder= 'Password'
                         />

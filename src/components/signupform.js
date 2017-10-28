@@ -33,29 +33,17 @@ export class SignUpForm extends React.Component {
                     {({submitForm}) => {
                     return (
                         <form onSubmit={submitForm}>
-                        <Text
-                            onChange={(e, onChange) => {
-                                console.log('it changed')
-                                onChange()
-                            }}                            
+                        <Text                      
                             field='name'
                             placeholder= 'Name'
                         />
 
                         <Text
-                            onChange={(e, onChange) => {
-                                console.log('it changed')
-                                onChange()
-                            }}
                             field='email'
                             placeholder= 'Email Address'
                         />
 
                         <Text
-                            onChange={(e, onChange) => {
-                                console.log('it changed')
-                                onChange()
-                            }}
                             field='password'
                             placeholder= 'Password'
                         />

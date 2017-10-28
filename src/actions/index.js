@@ -39,6 +39,7 @@ export const userLogin = (email, password) => async dispatch => {
     http.setCredentials(email, password);
     try {
         let loginResponse = await http.post(url);
+        hashHistory.push('/')
         console.log('Logged in successfully.');
         return dispatch(loginSuccess());
     } catch (err) {
@@ -46,42 +47,6 @@ export const userLogin = (email, password) => async dispatch => {
         return dispatch(loginFail(err.response.json()));
     }
 };
-
-/*
-export const userLogin = (email, password) => dispatch => {
-    const url = 'users/login';;
-    // let email = 'email';
-    // let password = 'passwprd';
-    console.log(JSON.stringify({email: email, password: password}));
-    return fetch(url, {
-       method: "POST",
-       body: JSON.stringify({email: email, password: password}),
-       headers: new Headers({
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        Authorization: 'Basic ' + btoa(email + ":" + password)
-      }) 
-    })
-    .then(response => {
-        if (!response.ok) {
-            const error = new Error(response.statusText)
-            error.response = response
-            throw error;
-        }
-        return response;
-    })
-    .then(response => {
-        return response.json();
-    })
-    .then(data => {
-        return dispatch(loginSuccess())
-    })
-    .catch(async error => {
-        let json = await error.response.json();      
-        return dispatch(loginFail(json.message))
-    });
-};
-*/
 
 export const USER_LOGIN = 'USER_LOGIN';
 export const loginUser = (email, password) => ({
@@ -101,7 +66,6 @@ export const createUserFail = (error) => {
     error: error
 }};
 
-
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const loginSuccess = () => ({
     type: LOGIN_SUCCESS
@@ -114,5 +78,9 @@ export const loginFail = (error) => {
     error: error
 }};
 
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const logoutSuccess = () => ({
+    type: LOGOUT_SUCCESS
+});
 
 

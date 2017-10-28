@@ -2,8 +2,6 @@ import React from 'react';
 import LoginForm from './loginform';
 import {connect} from 'react-redux';
 
-
-
 export class LogIn extends React.Component {
   constructor(props) {
       super(props);
@@ -12,7 +10,6 @@ export class LogIn extends React.Component {
       };
       // this.onClick = this.onClick.bind(this);
   }
-
 
       render() {
         return(
