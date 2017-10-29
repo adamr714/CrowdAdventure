@@ -5,7 +5,7 @@ const initialState = {
     loggedIn: false
 };
 
-export const reducer = (state=initialState, action) => {
+export const userReducer = (state=initialState, action) => {
     if (action.type === actions.CREATE_USER_SUCCESS) {
         return userCreated(action, state);
     }  
@@ -49,4 +49,5 @@ function userLoggedOut(action, state) {
     console.log("User Logged Out");
     return loggedOut;
 }
+
 

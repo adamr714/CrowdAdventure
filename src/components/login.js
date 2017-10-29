@@ -24,7 +24,7 @@ export class LogIn extends React.Component {
 }
 
 const traci = (state, props) => ({
-    data: state,
+    data: state.user,
     message: state.creationSuccessMessage,
     message: state.loggedInMessage 
 });

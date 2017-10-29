@@ -1,5 +1,6 @@
 import React from 'react';
-import CreateForm from './createform.js';
+// import CreateForm from './createform';
+import SimpleForm from './simpleForm';
 import {connect} from 'react-redux';
 
 export class Create extends React.Component {
@@ -16,7 +17,8 @@ export class Create extends React.Component {
         return(
           <div>
              <h2>Create a Project</h2>
-             <CreateForm /> 
+             {/* <CreateForm />  */}
+             <SimpleForm />
           </div>
         );
       }
