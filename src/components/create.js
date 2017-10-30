@@ -4,12 +4,9 @@ import SimpleForm from './simpleForm';
 import {connect} from 'react-redux';
 
 export class Create extends React.Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-
-      };
-      // this.onClick = this.onClick.bind(this);
+  submit = (values) => {
+    // print the form values to the console
+    console.log(values)
   }
 
 
@@ -18,7 +15,7 @@ export class Create extends React.Component {
           <div>
              <h2>Create a Project</h2>
              {/* <CreateForm />  */}
-             <SimpleForm />
+             <SimpleForm onSubmit={this.submit}/>
           </div>
         );
       }
