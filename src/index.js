@@ -5,6 +5,7 @@ import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 import {Provider} from 'react-redux';
 
 import './index.css';
+
 import store from './store';
 
 
@@ -18,7 +19,7 @@ import Create from './components/create';
 import ViewProjects from './components/view';
 import LogIn from './components/login';
 import SignUp from './components/signup';
-
+import Profile from './components/profile';
 
 
 const routes = (
@@ -32,6 +33,7 @@ const routes = (
           <Route path="/view" component={ViewProjects} />
           <Route path="/login" component={LogIn} />
           <Route path="/signup" component={SignUp} />  
+          <Route path="/profile" component={Profile} />  
        </Route>           
     </Router>
 );

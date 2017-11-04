@@ -1,7 +1,73 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field, FieldArray, reduxForm } from 'redux-form';
+import DateTimePicker from 'react-widgets/lib/DateTimePicker'
+import validate from "./validate";
+import Moment from 'react-moment';
+
+import 'react-widgets/dist/css/react-widgets.css'
 
 
+// const renderDateTimePicker = ({ input: { onChange, value }, showTime }) =>
+// <DateTimePicker
+//   onChange={onChange}
+//   format="DD MMM YYYY"
+//   time={showTime}
+//   value={!value ? null : new Date(value)}
+// />
+
+
+const renderField = ({ input, label, type, meta: { touched, error } }) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <input {...input} type={type} placeholder={label} />
+      {touched && error && <span>{error}</span>}
+    </div>
+  </div>
+)
+
+const renderRewards = ({ fields, meta: { error, submitFailed } }) => (
+  <ul>
+    <li>
+      <button type="button" onClick={() => fields.push({})}>
+        Add Reward
+      </button>
+      {submitFailed && error && <span>{error}</span>}
+    </li>
+    {fields.map((reward, index) => (
+      <li key={index}>
+        <button
+          type="button"
+          title="Remove Reward"
+          onClick={() => fields.remove(index)}
+        />
+        <h4>Reward #{index + 1}</h4>
+        <Field
+          name={`${reward}.title`}
+          type="text"
+          component={renderField}
+          label="Title"
+        />
+        <Field
+          name={`${reward}.amount`}
+          type="text"
+          component={renderField}
+          label="Amount"
+        />
+        <Field
+          name={`${reward}.descripton`}
+          type="text"
+          className="long_description"
+          component={renderField}
+          label="Description"
+        />
+
+
+        {/* <FieldArray name={`${reward}.hobbies`} component={renderHobbies} /> */}
+      </li>
+    ))}
+  </ul>
+)
 
 const SimpleForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
@@ -34,6 +100,18 @@ const SimpleForm = props => {
       </div>
 
       <div>
+        <label>Funding Goal</label>
+        <div>
+          <Field
+            name="fundingGoal"
+            component="input"
+            type="text"
+            placeholder="Amount Needed to Succeed"
+          />
+        </div>
+      </div>
+
+      <div>
         <label>Phase</label> 
         <div>
           <Field name="phase" component="select">
@@ -45,27 +123,55 @@ const SimpleForm = props => {
         </div>
       </div>
 
+
       <div>
         <label>Short Description</label>
         <div>
-          <Field name="shortDescription" component="textarea" />
+          <Field className="short_description" name="shortDescription" component="textarea" />
         </div>
       </div>
+
+      <div>
+        <label>Long Description</label>
+        <div>
+          <Field className="long_description" name="longDescription" component="textarea" />
+        </div>
+      </div>
+
+
+      <FieldArray name="rewards" component={renderRewards} />
+
+
+      {/* <div>
+        <label>Start Date</label>
+        <Field
+          name="dob"
+          showTime={true}
+          component={renderDateTimePicker}
+        />
+      </div> */}
+      {/* <div>
+        <label>End Date</label>
+        <Field
+          name="dob"
+          showTime={false}
+          component={renderDateTimePicker}
+        />
+      </div> */}
       <div>
         <button type="submit" disabled={pristine || submitting}>Submit</button>
         <button type="button" disabled={pristine || submitting} onClick={reset}>
           Clear Values
         </button>
       </div>
+
+
+
     </form>
     </div>
   );
 };
 
-// SimpleForm = reduxForm({
-//     SimpleForm,
-//     form: 'contact'
-// })(SimpleForm) 
 
 export default reduxForm({
   form: 'simple', // a unique identifier for this form

@@ -42,7 +42,7 @@ export class LoginForm extends React.Component {
                         />
 
 
-                        <button type='submit' className="button">Sign Up</button>
+                        <button type='submit' className="button">Log In</button>
                         </form>
                     )
                     }}

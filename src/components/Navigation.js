@@ -37,6 +37,7 @@ export class Navigation extends React.Component {
           links.push(<li><Link to={'/signup'}>Sign Up</Link></li>);
         } else {
           links.push(<li><Link onClick={this.onLogoutClick} to={'/'}>Logout</Link></li>);
+          links.push(<li><Link to={'/profile'}>Profile</Link></li>);
         }
         return(
           <div className="header">
@@ -59,7 +60,7 @@ export class Navigation extends React.Component {
 }
 
 const mapStateToProps =(state, props) => ({
-  loggedIn: state.loggedIn
+  loggedIn: state.user.loggedIn,
 });
 
 export default connect(mapStateToProps)(Navigation);

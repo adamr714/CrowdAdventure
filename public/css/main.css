@@ -88,3 +88,13 @@ input, textarea {
   width: 100%;
   margin: .5em 0;
 }
+
+.short_description {
+  min-height: 6em;
+}
+
+
+.long_description {
+  min-height: 12em;
+}
+

@@ -16,7 +16,7 @@ export const userReducer = (state=initialState, action) => {
     }
 
     if (action.type === actions.LOGIN_SUCCESS) {
-              return userLoggedIn(action, state);
+        return userLoggedIn(action, state);
     }
 
    if (action.type === actions.LOGOUT_SUCCESS) {
@@ -51,3 +51,4 @@ function userLoggedOut(action, state) {
 }
 
 
+export default userReducer;
