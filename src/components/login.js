@@ -14,9 +14,11 @@ export class LogIn extends React.Component {
       render() {
         return(
           <div>
+            <div className="row">
              <h2>Log In</h2>
              <div className="message">{this.props.message}</div>
              <LoginForm /> 
+            </div> 
           </div>
         );
       }

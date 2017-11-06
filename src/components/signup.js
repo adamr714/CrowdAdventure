@@ -15,9 +15,11 @@ export class SignUp extends React.Component {
       render() {
         return(
           <div>
+            <div className="row">
              <h2>Sign Up</h2>
              <div className="message">{this.props.message}</div> 
              <SignUpForm /> 
+             </div>
           </div>
         );
       }

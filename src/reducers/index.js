@@ -11,7 +11,6 @@ export const userReducer = (state=initialState, action) => {
     }  
 
     if (action.type === actions.CREATE_USER_FAIL) {
-  
         return userCreationFailed(action, state);
     }
 
@@ -22,7 +21,14 @@ export const userReducer = (state=initialState, action) => {
    if (action.type === actions.LOGOUT_SUCCESS) {
         return userLoggedOut(action, state);
     } 
-         
+   
+    if (action.type === actions.CREATE_ADVENTURE_SUCCESS) {
+        return adventureCreated(action, state);
+    }  
+    
+    if (action.type === actions.CREATE_ADVENTURE_FAIL) {
+        return adventureCreationFailed(action, state);
+    }
     return state;
 };
 
@@ -50,5 +56,15 @@ function userLoggedOut(action, state) {
     return loggedOut;
 }
 
+function adventureCreated(action, state) {
+    let adventureCreationSuccessful = Object.assign({}, state, {creationSuccessMessage: "Your Adventure has been created, tell your friends!"});
+    console.log("Adventure Created");
+    return adventureCreationSuccessful;
+}
 
+function adventureCreationFailed(action, state) {
+    let adventureFailed = Object.assign({}, state, {creationFailedMessage: action.error});
+    console.log("Adventure Creation Failed");
+    return adventureFailed;
+}
 export default userReducer;
