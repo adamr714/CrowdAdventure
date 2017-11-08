@@ -83,9 +83,13 @@ const renderRewards = ({ fields, meta: { error, submitFailed } }) => (
 
 const SimpleForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
+  
   return (
     <div className="row">
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(data => {
+        console.log('I have been submitted.');
+        console.log(data);
+      })}>
       <div>
         <label>Title</label>
         <div>
