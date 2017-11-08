@@ -1,25 +1,37 @@
 import React from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
-import DateTimePicker from 'react-widgets/lib/DateTimePicker'
-import validate from "./validate";
-import Moment from 'react-moment';
+// import validate from "./validate";
 
-import 'react-widgets/dist/css/react-widgets.css'
+import DateTimePicker from 'react-widgets/lib/DateTimePicker';
+
+import 'react-widgets/dist/css/react-widgets.css';
 
 
-// const renderDateTimePicker = ({ input: { onChange, value }, showTime }) =>
-// <DateTimePicker
-//   onChange={onChange}
-//   format="DD MMM YYYY"
-//   time={showTime}
-//   value={!value ? null : new Date(value)}
-// />
+import Moment from 'moment';
+import momentLocalizer from 'react-widgets-moment';
 
+// import simpleNumberLocalizer from 'react-widgets-simple-number';
+// import NumberPicker from 'react-widgets/lib/NumberPicker';
+
+// simpleNumberLocalizer();
+
+Moment.locale('en');
+momentLocalizer();
+
+
+
+
+const renderDateTimePicker = ({ input: { onChange, value }, showTime }) =>
+<DateTimePicker
+  onChange={onChange}
+  format="DD MMM YYYY"
+  time={showTime}
+  value={!value ? null : new Date(value)}
+/>
 
 const renderField = ({ input, label, type, meta: { touched, error } }) => (
   <div>
-    <label>{label}</label>
-    <div>
+    <label>{label}</label>    <div>
       <input {...input} type={type} placeholder={label} />
       {touched && error && <span>{error}</span>}
     </div>
@@ -123,6 +135,22 @@ const SimpleForm = props => {
         </div>
       </div>
 
+      <div>
+        <label>Start Date</label>
+        <Field
+          name="startDate"
+          showTime={false}
+          component={renderDateTimePicker}
+        />
+      </div>
+      <div>
+        <label>End Date</label>
+        <Field
+          name="endDate"
+          showTime={false}
+          component={renderDateTimePicker}
+        />
+      </div>
 
       <div>
         <label>Short Description</label>
@@ -142,22 +170,7 @@ const SimpleForm = props => {
       <FieldArray name="rewards" component={renderRewards} />
 
 
-      {/* <div>
-        <label>Start Date</label>
-        <Field
-          name="dob"
-          showTime={true}
-          component={renderDateTimePicker}
-        />
-      </div> */}
-      {/* <div>
-        <label>End Date</label>
-        <Field
-          name="dob"
-          showTime={false}
-          component={renderDateTimePicker}
-        />
-      </div> */}
+
       <div>
         <button type="submit" disabled={pristine || submitting}>Submit</button>
         <button type="button" disabled={pristine || submitting} onClick={reset}>
@@ -175,4 +188,5 @@ const SimpleForm = props => {
 
 export default reduxForm({
   form: 'simple', // a unique identifier for this form
+  // dispatch: store.dispatch(actions.userLogin(handleSubmit.short, ));
 })(SimpleForm);
