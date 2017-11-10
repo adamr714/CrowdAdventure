@@ -6,9 +6,13 @@ import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 
 import 'react-widgets/dist/css/react-widgets.css';
 
-
 import Moment from 'moment';
 import momentLocalizer from 'react-widgets-moment';
+
+import {connect} from 'react-redux';
+import store from '../store';
+
+import * as actions from '../actions/index';
 
 // import simpleNumberLocalizer from 'react-widgets-simple-number';
 // import NumberPicker from 'react-widgets/lib/NumberPicker';
@@ -18,8 +22,21 @@ import momentLocalizer from 'react-widgets-moment';
 Moment.locale('en');
 momentLocalizer();
 
+const validate = values => {
+  const errors = {}
+  if (!values.projectTitle) {
+    errors.projectTitle = 'Required'
+  } else if (values.projectTitle.length > 15) {
+    errors.projectTitle = 'Must be 15 characters or less'
+  }
+  return errors
+}
 
+const warn = values => {
+  const warnings = {}
 
+  return warnings
+}
 
 const renderDateTimePicker = ({ input: { onChange, value }, showTime }) =>
 <DateTimePicker
@@ -89,6 +106,7 @@ const SimpleForm = props => {
     <form onSubmit={handleSubmit(data => {
         console.log('I have been submitted.');
         console.log(data);
+        store.dispatch(actions.createAdventure(data));
       })}>
       <div>
         <label>Title</label>
@@ -138,6 +156,19 @@ const SimpleForm = props => {
           </Field>
         </div>
       </div>
+
+      <div>
+        <label>Image</label>
+          <div>
+            <Field
+              name="image"
+              component="input"
+              type="text"
+              placeholder="Image URL - Image Should be 200 x 200 px"
+            />
+          </div>
+      </div>
+    
 
       <div>
         <label>Start Date</label>
@@ -193,4 +224,6 @@ const SimpleForm = props => {
 export default reduxForm({
   form: 'simple', // a unique identifier for this form
   // dispatch: store.dispatch(actions.userLogin(handleSubmit.short, ));
+  validate,
+  warn
 })(SimpleForm);
