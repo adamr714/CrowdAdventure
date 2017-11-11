@@ -73,8 +73,8 @@ export const createAdventure = (data) => async dispatch => {
         return dispatch(createAdventureSuccess());
     } catch (err) {
         console.log('You failed to create this adventure. Error: ' + err);
-        debugger;
-        return dispatch(createAdventureFail(err.response.json()));
+
+        // return dispatch(createAdventureFail(err.response.json()));
     }
 };
 
@@ -89,8 +89,11 @@ export const userLogin = (email, password) => async dispatch => {
         return dispatch(loginSuccess());
     } catch (err) {
         console.log('Login failed miserably. Error: ' + err);
+        if (err.response == null) {
+            return dispatch(loginFail({message: 'User cannot be found'}))
+        }
         return dispatch(loginFail(err.response.json()));
-    }
+    } 
 };
 
 export const USER_LOGIN = 'USER_LOGIN';

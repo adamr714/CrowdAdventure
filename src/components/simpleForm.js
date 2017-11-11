@@ -164,7 +164,7 @@ const SimpleForm = props => {
               name="image"
               component="input"
               type="text"
-              placeholder="Image URL - Image Should be 200 x 200 px"
+              placeholder="Image URL - Image Should be 400 x 400 px"
             />
           </div>
       </div>
