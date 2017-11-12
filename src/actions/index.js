@@ -70,6 +70,7 @@ export const createAdventure = (data) => async dispatch => {
     try {
         let createNewAdventure = await http.post(url,data);
         console.log('Adventure created successfully.');
+        hashHistory.push('/profile')
         return dispatch(createAdventureSuccess());
     } catch (err) {
         console.log('You failed to create this adventure. Error: ' + err);
