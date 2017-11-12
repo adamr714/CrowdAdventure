@@ -14,12 +14,15 @@ export class LogIn extends React.Component {
       render() {
         return(
           <div>
-            <div className="row">
-             <h2>Log In</h2>
-             <div className="message">{this.props.message}</div>
-             <LoginForm /> 
-            </div> 
-          </div>
+            <div className="login">
+                <div className="row">
+                <h2 className="white">Log In</h2>
+                <p className="pull_quote"><em>Let the adventure begin!</em></p>
+                <div className="message">{this.props.message}</div>
+                <LoginForm /> 
+                </div> 
+            </div>
+          </div>    
         );
       }
   

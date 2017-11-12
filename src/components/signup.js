@@ -14,16 +14,24 @@ export class SignUp extends React.Component {
 
       render() {
         return(
-          <div>
-            <div className="row">
-             <h2>Sign Up</h2>
-             <div className="message">{this.props.message}</div> 
-             <SignUpForm /> 
-             </div>
-          </div>
+          <div className="signUp">
+            <div>
+              <div className="row">
+              <h2 className="white">Sign Up</h2>
+
+            
+              <p className="pull_quote"><em>"I've never risked anything and I'm really happy and successful" &mdash; No one ever</em></p>
+
+              <div className="message">{this.props.message}</div> 
+
+              <SignUpForm /> 
+
+              
+              </div>
+            </div>
+          </div>  
         );
       }
-  
 }
 
 const traci = (state, props) => ({

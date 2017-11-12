@@ -15,8 +15,9 @@ export class About extends React.Component {
         return(
           <div className="about_us">
             <div className="row">
+            <h2 className="white">About Us</h2>
             <p className="pull_quote"><em>Our passion is helping creators bring their idea to life with the help of CrowdFunding!</em></p>
-             <h2 className="white">About Us</h2>
+           
              <p>&nbsp;</p>
 
              <div className="white_background">
@@ -28,8 +29,8 @@ export class About extends React.Component {
                 <p>&nbsp;</p>
                   <p><strong>Why are these called Adventures?</strong><br />
                     If you’ve ever created or backed a project you understand these are more than buying a 
-                    product at a store, every one of these projects is an Adventure.  From the creators story on why t
-                    his is being created to the backer and why they are investing.  There will be highs, and sometimes lows, 
+                    product at a store, every one of these projects is an Adventure.  From the creators story on why 
+                    this is being created to the backer and why they are investing.  There will be highs, and sometimes lows, 
                     on the Adventure – but it will be a fun ride with cool rewards at the end.
                   </p>
                   <p>&nbsp;</p>
@@ -63,7 +64,7 @@ export class About extends React.Component {
 
 
 
-                  <ol><strong>CrowdAdventure has three phases:</strong>
+                  <ol><strong>Each Adventure Has Three Phases:</strong>
                       
                       <li><strong>Pre-launch</strong> – Conception of the project where the planning takes place and steps are created to ensure the Adventure can be launched – 
                         this is the riskiest part of the Adventure and backers who back at this stage usually back for more rewards, but the money-back guarantee 
