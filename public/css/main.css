@@ -38,6 +38,7 @@ ol {
 
 .white {
   color: white;
+  text-shadow: 3px 3px 3px #000;
 }
 
 .footer_link_top {
@@ -72,6 +73,14 @@ ol {
   box-shadow: inset 0 0 10px #000000;
  }
 
+ .adventure {
+  background-image: url(../images/adventure.png);
+  background-size: cover;
+  margin: 0em;
+  padding: -1em;
+  min-height: 75em;
+}
+
 .about_us {
   background-image: url(../images/about_us.png);
   background-size: cover;
@@ -94,6 +103,15 @@ ol {
   padding: -1em;
   min-height: 75em;
 }
+
+.view {
+  background-image: url(../images/blueprint.png);
+  background-size: cover;
+  margin: 0em;
+  padding: -1em;
+  min-height: 75em;
+}
+
 p.pull_quote {
   display: block;
   text-align: center;
@@ -102,6 +120,14 @@ p.pull_quote {
   padding: 1em;
   font-size: 2.5em;
   background-color: rgba(240, 248, 255, 0.8)
+}
+
+.active {
+  color: crimson !important;
+  padding: 5px !important;
+  border: 1px solid white !important;
+  background-color: rgba(0255, 255, 255, 0.8) !important ;
+  box-shadow: 4px 4px 4px #6d8380 !important
 }
 
 input, textarea {
@@ -190,6 +216,14 @@ input, textarea {
   }
 
   .signUp {
+    background-image: none;
+    background-size: cover;
+    margin: 0em;
+    padding: -1em;
+  }
+
+
+  .adventure {
     background-image: none;
     background-size: cover;
     margin: 0em;

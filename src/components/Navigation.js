@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router';
 import store from '../store';
+import NavLink from './NavLink'
 
 import {connect} from 'react-redux';
 
@@ -22,22 +23,22 @@ export class Navigation extends React.Component {
       render() {
         let links = [];
 
-        links.push(<li><Link to={'/home'}>Home</Link></li>);
-        links.push(<li><Link to={'/about'}>About Us</Link></li>);
+        links.push(<li><NavLink to={'/home'}>Home</NavLink></li>);
+        links.push(<li><NavLink to={'/about'}>About Us</NavLink></li>);
 
         if(this.props.loggedIn) {
-          links.push(<li><Link to={'/create'}>Create</Link></li>);
+          links.push(<li><NavLink to={'/create'}>Create</NavLink></li>);
         }
 
-        links.push(<li><Link to={'/view'}>View Projects</Link></li>);
+        links.push(<li><NavLink to={'/view'}>View Projects</NavLink></li>);
 
 
         if(!this.props.loggedIn) {
-          links.push(<li><Link to={'/login'}>Log In</Link></li>);
-          links.push(<li><Link to={'/signup'}>Sign Up</Link></li>);
+          links.push(<li><NavLink to={'/login'}>Log In</NavLink></li>);
+          links.push(<li><NavLink to={'/signup'}>Sign Up</NavLink></li>);
         } else {
-          links.push(<li><Link onClick={this.onLogoutClick} to={'/'}>Logout</Link></li>);
-          links.push(<li><Link to={'/profile'}>Profile</Link></li>);
+          links.push(<li><NavLink onClick={this.onLogoutClick} to={'/'}>Logout</NavLink></li>);
+          links.push(<li><NavLink to={'/profile'}>Profile</NavLink></li>);
         }
         return(
           <div className="header">

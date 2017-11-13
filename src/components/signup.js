@@ -17,7 +17,7 @@ export class SignUp extends React.Component {
           <div className="signUp">
             <div>
               <div className="row">
-              <h2 className="white">Sign Up</h2>
+              {/* <h2 className="white">Sign Up</h2> */}
 
             
               <p className="pull_quote"><em>"I've never risked anything and I'm really happy and successful" &mdash; No one ever</em></p>

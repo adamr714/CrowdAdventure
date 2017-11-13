@@ -15,7 +15,7 @@ export class About extends React.Component {
         return(
           <div className="about_us">
             <div className="row">
-            <h2 className="white">About Us</h2>
+            {/* <h2 className="white">About Us</h2> */}
             <p className="pull_quote"><em>Our passion is helping creators bring their idea to life with the help of CrowdFunding!</em></p>
            
              <p>&nbsp;</p>

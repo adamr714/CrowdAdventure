@@ -1,6 +1,6 @@
 import React from 'react';
 import HomeCarousel from './carousel'
-import Card from './card'
+import AdventureSmall from './adventure_small'
 export class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -13,11 +13,16 @@ export class Home extends React.Component {
   
         render() {
           return(
-            <div>
+            <div className="adventure">
+              {/* <div className="spacer"></div> */}
+            
                <HomeCarousel />
-               <Card />
-               <form>
-               </form>  
+              <div className="row">
+                <div className="col-12">
+                    <h2 className="white">New Projects</h2>
+                    <AdventureSmall />
+                </div>
+               </div>
             </div>
           );
         }

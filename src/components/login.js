@@ -16,7 +16,7 @@ export class LogIn extends React.Component {
           <div>
             <div className="login">
                 <div className="row">
-                <h2 className="white">Log In</h2>
+                {/* <h2 className="white">Log In</h2> */}
                 <p className="pull_quote"><em>Let the adventure begin!</em></p>
                 <div className="message">{this.props.message}</div>
                 <LoginForm /> 
