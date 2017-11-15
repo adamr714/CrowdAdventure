@@ -9,7 +9,7 @@ class AdventureSmall extends Component {
                     Image goes here
                 </div>
                 <div className="col-6">
-                    <p>Title:</p>
+                    <p>Title:</p> 
                     <p>Creator:</p>
                     <p>Short Description:</p>
                     <p>Goal:</p>

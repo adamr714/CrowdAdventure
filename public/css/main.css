@@ -76,6 +76,7 @@ ol {
  .adventure {
   background-image: url(../images/adventure.png);
   background-size: cover;
+  background-position: center 11em;  
   margin: 0em;
   padding: -1em;
   min-height: 75em;
@@ -84,6 +85,7 @@ ol {
 .about_us {
   background-image: url(../images/about_us.png);
   background-size: cover;
+  background-position: center center;  
   margin: 0em;
   padding: -1em;
 }
@@ -91,6 +93,7 @@ ol {
 .login {
   background-image: url(../images/login.png);
   background-size: cover;
+  background-position: center center;  
   margin: 0em;
   padding: -1em;
   min-height: 75em;
@@ -99,6 +102,7 @@ ol {
 .signUp {
   background-image: url(../images/signup.png);
   background-size: cover;
+  background-position: center center;  
   margin: 0em;
   padding: -1em;
   min-height: 75em;
@@ -107,6 +111,7 @@ ol {
 .view {
   background-image: url(../images/blueprint.png);
   background-size: cover;
+  background-position: center center;  
   margin: 0em;
   padding: -1em;
   min-height: 75em;
@@ -202,30 +207,30 @@ input, textarea {
 
 @media only screen and (max-width: 400px) {
   .about_us {
-    background-image: none;
     background-size: cover;
+    background-position: center center;
     margin: 0em;
     padding: -1em;
   }
 
   .login {
-    background-image: none;
     background-size: cover;
+    background-position: center center;
     margin: 0em;
     padding: -1em;
   }
 
   .signUp {
-    background-image: none;
     background-size: cover;
+    background-position: center center;
     margin: 0em;
     padding: -1em;
   }
 
 
   .adventure {
-    background-image: none;
     background-size: cover;
+    background-position: center center;
     margin: 0em;
     padding: -1em;
   }

@@ -37,7 +37,7 @@ export class Navigation extends React.Component {
           links.push(<li><NavLink to={'/login'}>Log In</NavLink></li>);
           links.push(<li><NavLink to={'/signup'}>Sign Up</NavLink></li>);
         } else {
-          links.push(<li><NavLink onClick={this.onLogoutClick} to={'/'}>Logout</NavLink></li>);
+          links.push(<li><Link onClick={this.onLogoutClick} to={'/'}>Logout</Link></li>);
           links.push(<li><NavLink to={'/profile'}>Profile</NavLink></li>);
         }
         return(

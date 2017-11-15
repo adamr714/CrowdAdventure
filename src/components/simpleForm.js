@@ -22,13 +22,37 @@ import * as actions from '../actions/index';
 Moment.locale('en');
 momentLocalizer();
 
+const validateField = ({
+  input,
+  label,
+  type,
+  meta: { touched, error, warning }
+}) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <input {...input} placeholder={label} type={type} />
+      {touched &&
+        ((error && <span>{error}</span>) ||
+          (warning && <span>{warning}</span>))}
+    </div>
+  </div>
+)
+
 const validate = values => {
   const errors = {}
   if (!values.projectTitle) {
     errors.projectTitle = 'Required'
-  } else if (values.projectTitle.length > 15) {
-    errors.projectTitle = 'Must be 15 characters or less'
+  } else if (values.projectTitle.length > 45) {
+    errors.projectTitle = 'Must be 45 characters or less'
   }
+  
+  if (!values.fundingGoal) {
+    errors.fundingGoal = "Required, Please don't use $ , or ."
+  } else if (isNaN(Number(values.fundingGoal))) {
+    errors.fundingGoal = 'Must be a number'
+  }
+
   return errors
 }
 
@@ -79,7 +103,7 @@ const renderRewards = ({ fields, meta: { error, submitFailed } }) => (
         />
         <Field
           name={`${reward}.amount`}
-          type="text"
+          type="number"
           component={renderField}
           label="Amount"
         />
@@ -98,6 +122,8 @@ const renderRewards = ({ fields, meta: { error, submitFailed } }) => (
   </ul>
 )
 
+
+
 const SimpleForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
   
@@ -108,6 +134,7 @@ const SimpleForm = props => {
         console.log(data);
         store.dispatch(actions.createAdventure(data));
       })}>
+
       <div>
         <label>Title</label>
         <div>
@@ -115,6 +142,7 @@ const SimpleForm = props => {
             name="projectTitle"
             component="input"
             type="text"
+            component={validateField}
             placeholder="Project Title"
           />
         </div>
@@ -124,6 +152,7 @@ const SimpleForm = props => {
         <label>Category</label> 
         <div>
           <Field name="category" component="select">
+         
             <option />
             <option value="Game">Game</option>
             <option value="Publishing">Publishing</option>
@@ -139,8 +168,9 @@ const SimpleForm = props => {
           <Field
             name="fundingGoal"
             component="input"
-            type="text"
+            type="number"
             placeholder="Amount Needed to Succeed"
+            component={validateField}
           />
         </div>
       </div>
