@@ -6,46 +6,67 @@ export class ViewProjects extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
-
+          adventures : []
       };
-      // this.onClick = this.onClick.bind(this);
   }
 
   async componentDidMount() {
     let adventures = await http.get('adventures');
-    console.log(adventures);
-
-    let prephase = []
-    let launched = []
-    let fulfilled = []
-
-    for (let i = 0; i < adventures.length; i++) {
-      switch(adventures[i].phase) {
-        case "prephase":
-          prephase.push(adventures[i]);
-          console.log(prephase);
-          break;
-        case "launched":
-          launched.push(adventures[i]);
-          break;
-        case "fulfilled":
-          fulfilled.push(adventures[i]);
-          break;  
-      } 
-    }
+    this.setState({adventures}) 
   };
-    
+
       render() {
+        const prelaunch = this.state.adventures.map((item, index) => {
+          if (item.phase === "prelaunch") {
+            return (
+              <div className="border">
+              <p>{"Title: " + item.projectTitle}</p>
+              <p>{"Short Description: " + item.shortDescription}</p>
+              <p>{"Category: " + item.category}</p>
+              <p>{"Goal: " + item.fundingGoal}</p>
+              <p>{"Phase: " + item.phase}</p>
+              </div>
+            ) 
+          } 
+        })
+
+        const launch = this.state.adventures.map((item, index) => {
+          if (item.phase === "launch") {
+            return (
+              <div className="border">
+              <p>{"Title: " + item.projectTitle}</p>
+              <p>{"Short Description: " + item.shortDescription}</p>
+              <p>{"Category: " + item.category}</p>
+              <p>{"Goal: " + item.fundingGoal}</p>
+              <p>{"Phase: " + item.phase}</p>
+              </div>
+            ) 
+          } 
+        })
+
+        const fulfilled = this.state.adventures.map((item, index) => {
+          if (item.phase === "fulfilled") {
+            return (
+              <div className="border">
+              <p>{"Title: " + item.projectTitle}</p>
+              <p>{"Short Description: " + item.shortDescription}</p>
+              <p>{"Category: " + item.category}</p>
+              <p>{"Goal: " + item.fundingGoal}</p>
+              <p>{"Phase: " + item.phase}</p>
+              </div>
+            ) 
+          } 
+        })
+
         return(
           <div className="view">
             <div className="row">
-              {/* <h2 className="white">Current Projects</h2> */}
               <h2 className="white">Pre-Launch Phase</h2>
-              <AdventureSmall />
+              {prelaunch}
               <h2 className="white">Recently Launched</h2>
-              <AdventureSmall />
+              {launch}
               <h2 className="white">Being Fulfilled</h2>
-              <AdventureSmall />
+              {fulfilled}
             </div>
           </div>  
         );
