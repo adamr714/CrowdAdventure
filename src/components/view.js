@@ -1,11 +1,11 @@
 import React from 'react';
 import AdventureSmall from './adventure_small'
 import http from '../services/http';
+import {hashHistory} from 'react-router';
 
-function Button(props) {
-  return <button className="button_adventure" onClick={props.onClick}>{props.text}</button>;
-}
-
+// function Button(props) {
+//   return <button className="button_adventure" data-project={item.projectTitle} onClick={props.onClick}>{props.text}</button>;
+// }
 
 export class ViewProjects extends React.Component {
   constructor(props) {
@@ -15,8 +15,8 @@ export class ViewProjects extends React.Component {
           time : '',
           clicked: false
       };
+      this.onButtonClick = this.onButtonClick.bind(this)
   }
-
   
   async componentDidMount() {
     let adventures = await http.get('adventures');
@@ -28,10 +28,9 @@ export class ViewProjects extends React.Component {
     this.setState(time)
   };
 
-  onButtonClick() {
-    this.setState({
-        clicked: true
-    });
+  onButtonClick(event) {
+    let projectName = event.target.getAttribute('data-project')
+    hashHistory.push('/view/' + projectName)
   }
 
 
@@ -47,14 +46,17 @@ export class ViewProjects extends React.Component {
 
                     <div className="col-6>">
                       <p className="title">{item.projectTitle}</p>
+                      <p>{"Created By: " + item.createdBy}</p>
                       <p>{item.shortDescription}</p>
                       <p>{"Number of Rewards: " + item.rewards.length}</p>
                       <p>{"Funding Goal: " + item.fundingGoal}</p>
                     </div>
 
                     <div>
-                      <Button onClick={this.onButtonClick} text='Join this Adventure' />
-                      {this.state.clicked}
+                      <button className="button_adventure" data-project={item.projectTitle} onClick={this.onButtonClick}>Join this Adventure</button>
+                      
+                    
+
                     </div>
                 </div>
               </div>

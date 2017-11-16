@@ -33,7 +33,8 @@ const routes = (
           <Route path="/view" component={ViewProjects} />
           <Route path="/login" component={LogIn} />
           <Route path="/signup" component={SignUp} />  
-          <Route path="/profile" component={Profile} />  
+          <Route path="/profile" component={Profile} /> 
+          <Route path="/view/:projectTitle" compontent={ViewProjects} /> 
        </Route>           
     </Router>
 );

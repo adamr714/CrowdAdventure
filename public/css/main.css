@@ -9,9 +9,9 @@
 	-webkit-box-shadow: 8px 9px 5px -4px rgba(0,0,0,0.28);
 	-moz-box-shadow: 8px 9px 5px -4px rgba(0,0,0,0.28);
 	box-shadow: 8px 9px 5px -4px rgba(0,0,0,0.28);
-background-color: #fff;
-  height: 14em;
-  margin-bottom: 1em
+  background-color: #fff;
+  min-height: 14em;
+  margin-bottom: 1em;
 }
 
 .filler {
