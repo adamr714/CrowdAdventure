@@ -1,40 +1,36 @@
 import React from 'react';
 import { Field, FieldArray, reduxForm } from 'redux-form';
-// import validate from "./validate";
-
 import DateTimePicker from 'react-widgets/lib/DateTimePicker';
-
 import 'react-widgets/dist/css/react-widgets.css';
-
 import Moment from 'moment';
 import momentLocalizer from 'react-widgets-moment';
-
 import {connect} from 'react-redux';
 import store from '../store';
-
 import * as actions from '../actions/index';
-
-// import simpleNumberLocalizer from 'react-widgets-simple-number';
-// import NumberPicker from 'react-widgets/lib/NumberPicker';
-
-// simpleNumberLocalizer();
 
 Moment.locale('en');
 momentLocalizer();
 
 const validateField = ({
-  input,
-  label,
-  type,
-  meta: { touched, error, warning }
+  input, label, type, meta: { touched, error, warning }
 }) => (
   <div>
     <label>{label}</label>
     <div>
       <input {...input} placeholder={label} type={type} />
-      {touched &&
-        ((error && <span>{error}</span>) ||
-          (warning && <span>{warning}</span>))}
+      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+    </div>
+  </div>
+)
+
+const validateSelect = ({
+  input, label, type, meta: { touched, error, warning }
+}) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <input {...input} placeholder={label} />
+      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
     </div>
   </div>
 )
@@ -51,6 +47,10 @@ const validate = values => {
     errors.fundingGoal = "Required, Please don't use $ , or ."
   } else if (isNaN(Number(values.fundingGoal))) {
     errors.fundingGoal = 'Must be a number'
+  }
+
+  if (!values.category) {
+    errors.category = 'Required'
   }
 
   return errors
@@ -136,7 +136,7 @@ const SimpleForm = props => {
       })}>
 
       <div>
-        <label>Title</label>
+        <label>Project Title</label>
         <div>
           <Field
             name="projectTitle"
@@ -148,10 +148,16 @@ const SimpleForm = props => {
         </div>
       </div>
 
+
+
       <div>
         <label>Category</label> 
         <div>
-          <Field name="category" component="select">
+          <Field 
+          name="category" 
+          component="select"
+          type="select"
+          >
          
             <option />
             <option value="Game">Game</option>
@@ -255,5 +261,6 @@ export default reduxForm({
   form: 'simple', // a unique identifier for this form
   // dispatch: store.dispatch(actions.userLogin(handleSubmit.short, ));
   validate,
-  warn
+  warn,
+  destroOynUnmount: true
 })(SimpleForm);

@@ -779,7 +779,7 @@ h4 {
     font-size: 1.2rem;
     margin: 12px 0
 }
-button,
+
 input,
 select,
 textarea {
@@ -1167,3 +1167,4 @@ code {
     content: '';
     margin: 0
 }
+
