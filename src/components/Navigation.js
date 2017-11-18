@@ -50,9 +50,11 @@ export class Navigation extends React.Component {
 
               <div className="row">
                 <div className="col-12 navigation">
+                  <nav>
                   <ul>
                     {links}
-                  </ul>  
+                  </ul> 
+                  </nav> 
                 </div>
               </div>  
           </div>

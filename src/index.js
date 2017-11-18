@@ -27,7 +27,7 @@ const routes = (
     <Router history={hashHistory}>
       <Route path="/" component={Master} >
           <IndexRoute component={Home} />
-          <Route path="/adventure" compontent={ViewProjects} /> 
+          <Route path="/adventure" component={ViewProjects} /> 
           <Route path="/" component={Home} />
           <Route path="/home" component={Home} />
           <Route path="/about" component={About} />
@@ -36,7 +36,7 @@ const routes = (
           <Route path="/login" component={LogIn} />
           <Route path="/signup" component={SignUp} />  
           <Route path="/profile" component={Profile} /> 
-          {/* <Route path="/view/:projectTitle" compontent={currentAdventure} />  */}
+          <Route path="/view/:projectTitle" component={currentAdventure} /> 
          
        </Route>           
     </Router>
