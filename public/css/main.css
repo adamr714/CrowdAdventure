@@ -182,7 +182,7 @@ input, textarea {
   .button_adventure {
     border: 0;
 	border-radius: .2em;
-	width: 60%;
+	width: 100%;
 	display: inline-block;
 	margin-left: 0 auto;
 	margin-right: 0 auto;
@@ -196,7 +196,8 @@ input, textarea {
     transition: all 0.5s ease;
     -webkit-appearance: none;
 	cursor: pointer;
-	text-align: center;
+  text-align: center;
+  box-shadow: 4px 4px 8px lightblue;
   }
 
 
@@ -228,9 +229,10 @@ input, textarea {
 }
 
 img.image_small {
-  max-width: 34%;
+  width: 100%;
   float: left;
   margin-right: 2em;
+  margin-top: 5;%
 }
 
 p.title {
@@ -239,8 +241,27 @@ p.title {
   font-variant: small-caps;
   font-size: 3em;
   text-shadow: 2px 2px 4px darkseagreen;
+  margin-bottom: .3em;
 }
 
+p.creator {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: .3em;
+ }
+
+ p.description {
+   line-height: 130%;
+   margin-bottom: .3em;
+ }
+
+ p.rewards {
+  margin-bottom: .3em;
+ }
+
+ p.goal {
+  margin-bottom: .3em;
+ }
 @media only screen and (max-width: 400px) {
   .about_us {
     background-size: cover;

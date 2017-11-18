@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, hashHistory, IndexRoute} from 'react-router';
+
 import {Provider} from 'react-redux';
 
 import './index.css';
@@ -20,12 +21,13 @@ import ViewProjects from './components/view';
 import LogIn from './components/login';
 import SignUp from './components/signup';
 import Profile from './components/profile';
-
+import currentAdventure from './components/currentAdventure'
 
 const routes = (
     <Router history={hashHistory}>
       <Route path="/" component={Master} >
           <IndexRoute component={Home} />
+          <Route path="/adventure" compontent={ViewProjects} /> 
           <Route path="/" component={Home} />
           <Route path="/home" component={Home} />
           <Route path="/about" component={About} />
@@ -34,7 +36,8 @@ const routes = (
           <Route path="/login" component={LogIn} />
           <Route path="/signup" component={SignUp} />  
           <Route path="/profile" component={Profile} /> 
-          <Route path="/view/:projectTitle" compontent={ViewProjects} /> 
+          {/* <Route path="/view/:projectTitle" compontent={currentAdventure} />  */}
+         
        </Route>           
     </Router>
 );

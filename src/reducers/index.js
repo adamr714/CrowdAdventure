@@ -29,6 +29,7 @@ export const userReducer = (state=initialState, action) => {
     if (action.type === actions.CREATE_ADVENTURE_FAIL) {
         return adventureCreationFailed(action, state);
     }
+    
     return state;
 };
 
@@ -67,4 +68,5 @@ function adventureCreationFailed(action, state) {
     console.log("Adventure Creation Failed");
     return adventureFailed;
 }
+
 export default userReducer;

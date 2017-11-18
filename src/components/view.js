@@ -1,19 +1,12 @@
 import React from 'react';
-import AdventureSmall from './adventure_small'
 import http from '../services/http';
 import {hashHistory} from 'react-router';
-
-// function Button(props) {
-//   return <button className="button_adventure" data-project={item.projectTitle} onClick={props.onClick}>{props.text}</button>;
-// }
 
 export class ViewProjects extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
           adventures : [],
-          time : '',
-          clicked: false
       };
       this.onButtonClick = this.onButtonClick.bind(this)
   }
@@ -22,10 +15,6 @@ export class ViewProjects extends React.Component {
     let adventures = await http.get('adventures');
     console.log(adventures)
     this.setState({adventures}) 
-
-    let time = new Date();
-    console.log(time);
-    this.setState(time)
   };
 
   onButtonClick(event) {
@@ -36,27 +25,35 @@ export class ViewProjects extends React.Component {
 
       render() {
         const prelaunch = this.state.adventures.map((item, index) => {
-          if (item.phase === "prelaunch")  {
+          let time = new Date();
+          let currentTime = Date.parse(time);
+          let endDate = Date.parse(item.endDate);
+          let publish = endDate - currentTime;
+
+          let fundingGoal = item.fundingGoal;
+          let correctFundingGoal = fundingGoal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+
+          if (item.phase === "prelaunch" && publish > 0)  {
             return (
               <div className="col-12" key={index}>
-                <div className="adventureContainer" >
-                    <div className="col-6>">
+                <div className="row adventureContainer" >
+
+                    <div className="col-6">
                        <img className="image_small" src={item.image} />
                     </div>
 
-                    <div className="col-6>">
+                    <div className="col-6">
                       <p className="title">{item.projectTitle}</p>
-                      <p>{"Created By: " + item.createdBy}</p>
-                      <p>{item.shortDescription}</p>
-                      <p>{"Number of Rewards: " + item.rewards.length}</p>
-                      <p>{"Funding Goal: " + item.fundingGoal}</p>
+                      <p className="creator">{"Created By: " + item.createdBy}</p>
+                      <p className="description">{item.shortDescription}</p>
+                      <p className="rewards">{"Number of Rewards: " + item.rewards.length}</p>
+                      <p className="goal">{"Funding Goal: $" + correctFundingGoal}</p>
+                      {/* <p className="">{"# of Adventures: " + item.adventures}</p>
+                      <p className="">{"% Funded " + item.funded}</p> */}
                     </div>
 
                     <div>
                       <button className="button_adventure" data-project={item.projectTitle} onClick={this.onButtonClick}>Join this Adventure</button>
-                      
-                    
-
                     </div>
                 </div>
               </div>
@@ -65,28 +62,73 @@ export class ViewProjects extends React.Component {
         })
 
         const launch = this.state.adventures.map((item, index) => {
-          if (item.phase === "launch") {
+          let time = new Date();
+          let currentTime = Date.parse(time);
+          let endDate = Date.parse(item.endDate);
+          let publish = endDate - currentTime;
+
+          let fundingGoal = item.fundingGoal;
+          let correctFundingGoal = fundingGoal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+          
+          if (item.phase === "launch" && publish > 0)  {
             return (
-              <div className="adventureContainer" key={index}>
-              <p>{"Title: " + item.projectTitle}</p>
-              <p>{"Short Description: " + item.shortDescription}</p>
-              <p>{"Category: " + item.category}</p>
-              <p>{"Goal: " + item.fundingGoal}</p>
-              <p>{"Phase: " + item.phase}</p>
+              <div className="col-12" key={index}>
+                <div className="row adventureContainer" >
+
+                    <div className="col-6">
+                       <img className="image_small" src={item.image} />
+                    </div>
+
+                    <div className="col-6">
+                      <p className="title">{item.projectTitle}</p>
+                      <p className="creator">{"Created By: " + item.createdBy}</p>
+                      <p className="description">{item.shortDescription}</p>
+                      <p className="rewards">{"Number of Rewards: " + item.rewards.length}</p>
+                      <p className="goal">{"Funding Goal: $" + correctFundingGoal}</p>
+                      {/* <p className="">{"# of Adventures: " + item.adventures}</p>
+                      <p className="">{"% Funded " + item.funded}</p> */}
+                    </div>
+
+                    <div>
+                      <button className="button_adventure" data-project={item.projectTitle} onClick={this.onButtonClick}>Join this Adventure</button>
+                    </div>
+                </div>
               </div>
             ) 
           } 
         })
 
         const fulfilled = this.state.adventures.map((item, index) => {
-          if (item.phase === "fulfilled") {
+          let time = new Date();
+          let currentTime = Date.parse(time);
+          let endDate = Date.parse(item.endDate);
+          let publish = endDate - currentTime;
+
+          let fundingGoal = item.fundingGoal;
+          let correctFundingGoal = fundingGoal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+          if (item.phase === "fulfilled"  && publish > 0) {
             return (
-              <div className="adventureContainer" key={index}>
-              <p>{"Title: " + item.projectTitle}</p>
-              <p>{"Short Description: " + item.shortDescription}</p>
-              <p>{"Category: " + item.category}</p>
-              <p>{"Goal: " + item.fundingGoal}</p>
-              <p>{"Phase: " + item.phase}</p>
+              <div className="col-12" key={index}>
+                <div className="row adventureContainer" >
+
+                    <div className="col-6">
+                       <img className="image_small" src={item.image} />
+                    </div>
+
+                    <div className="col-6">
+                      <p className="title">{item.projectTitle}</p>
+                      <p className="creator">{"Created By: " + item.createdBy}</p>
+                      <p className="description">{item.shortDescription}</p>
+                      <p className="rewards">{"Number of Rewards: " + item.rewards.length}</p>
+                      <p className="goal">{"Funding Goal: $" + correctFundingGoal}</p>
+                      {/* <p className="">{"# of Adventures: " + item.adventures}</p>
+                      <p className="">{"% Funded " + item.funded}</p> */}
+                    </div>
+
+                    <div>
+                      <button className="button_adventure" data-project={item.projectTitle} onClick={this.onButtonClick}>Join this Adventure</button>
+                    </div>
+                </div>
               </div>
             ) 
           } 
