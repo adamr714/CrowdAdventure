@@ -1,5 +1,5 @@
 import * as actions from '../actions/index';
-import store from '../store'
+// import store from '../store'
 
 const initialState = {
     loggedIn: false

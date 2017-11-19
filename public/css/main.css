@@ -129,14 +129,25 @@ ol {
   min-height: 75em;
 }
 
-.individual {
-  background-image: url(../images/individual.png);
+.profile {
+  background-image: url(../images/profile.png);
   background-size: cover;
   background-position: center center;  
   margin: 0em;
   padding: -1em;
   min-height: 75em;
 }
+
+
+.individual {
+  background-image: url(../images/individual.jpg);
+  background-size: cover;
+  background-position: center center;  
+  margin: 0em;
+  padding: -1em;
+  min-height: 75em;
+}
+
 
 .create {
   background-image: url(../images/grid.jpg);
@@ -306,6 +317,7 @@ p.creator {
   padding: 10px;
   margin-top: 2em;
   display: block;
+  /* width: 100%; */
 }
 
 p.adventureSoloTitle {
@@ -361,7 +373,16 @@ p.individual_title {
     margin: 0em;
     padding: -1em;
   }
-  .white {
+  /* .white {
     color: #000;
+  } */
+
+  .carousel .slider-wrapper {
+    display: none;
+    }
+
+  img.image_center {
+    width: 100%;
   }
 }
+

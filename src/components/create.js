@@ -1,7 +1,7 @@
 import React from 'react';
 // import CreateForm from './createform';
 import SimpleForm from './simpleForm';
-import {connect} from 'react-redux';
+// import {connect} from 'react-redux';
 
 export class Create extends React.Component {
   submit = (values) => {

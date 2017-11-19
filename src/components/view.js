@@ -61,15 +61,10 @@ export class ViewProjects extends React.Component {
         })
 
         const launch = this.state.adventures.map((item, index) => {
-          let time = new Date();
-          let currentTime = Date.parse(time);
-          let endDate = Date.parse(item.endDate);
-          let publish = endDate - currentTime;
-
           let fundingGoal = item.fundingGoal;
           let correctFundingGoal = fundingGoal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 
-          if (item.phase === "launch" && publish > 0)  {
+          if (item.phase === "launch")  {
             return (
               <div className="col-12" key={index}>
                 <div className="row adventureContainer" >
@@ -96,16 +91,12 @@ export class ViewProjects extends React.Component {
             ) 
           } 
         })
-
+   
         const fulfilled = this.state.adventures.map((item, index) => {
-          let time = new Date();
-          let currentTime = Date.parse(time);
-          let endDate = Date.parse(item.endDate);
-          let publish = endDate - currentTime;
-
           let fundingGoal = item.fundingGoal;
           let correctFundingGoal = fundingGoal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-          if (item.phase === "fulfilled"  && publish > 0) {
+
+          if (item.phase === "fulfilled")  {
             return (
               <div className="col-12" key={index}>
                 <div className="row adventureContainer" >

@@ -9,8 +9,8 @@ export class CurrentAdventure extends React.Component {
           adventure : {
             rewards : [],
             projectTitle : "",
-            clickedValue : "Adventure Backed"
-          },
+            textValue:'Change me'
+            },
           projectTitle: props.params.projectTitle
       };
       this.onButtonClick = this.onButtonClick.bind(this)
@@ -22,14 +22,19 @@ export class CurrentAdventure extends React.Component {
     this.setState({adventure}); 
   };
 
-  onButtonClick(event) {
- 
+  onButtonClick() {
+    this.setState({
+      textValue: "Backed"
+  });
+
+  // console.log(this.state.adventure.text);
   }
 
     render() {
-      console.log(this.state.adventure.fundingGoal);
+      // console.log(this.state.adventure.fundingGoal);
       // let fundingGoal = this.state.adventure.fundingGoal;
       // console.log(fundingGoal);
+      console.log(this.state.adventure.text);
       const rewardDetails = this.state.adventure.rewards.map((item, index) => {
         let rewardLevel = item.amount;
         let reward = rewardLevel.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
@@ -43,18 +48,22 @@ export class CurrentAdventure extends React.Component {
                     <p className="individual_description">{item.descripton}</p>
                   </div>
 
-                  <div>
-                    <button className="button_adventure" data-project={item.projectTitle} onClick={this.onButtonClick}>Back this Adventure</button>
-                  </div>
+                  <div>                  
+                   <button className="button_adventure" onClick={this.onButtonClick}>Join this Adventure</button>
+                  
+                        
+                       
+                                    </div>
+
               </div>
             </div>
-          ) 
+          )
         } 
       })
  
       return(
        
-        <div className="">
+        <div className="individual">
             <div className="row">
                 <img className="image_center" src={this.state.adventure.image} alt={this.state.adventure.projectTitle}/>
             </div> 
@@ -63,6 +72,7 @@ export class CurrentAdventure extends React.Component {
               <div className="col-6">
                 <p className="adventureSoloTitle">{this.state.adventure.projectTitle}</p>
                 <p>{this.state.adventure.longDescription}</p>
+
                 <p><strong>Funding Goal:</strong> ${this.state.adventure.fundingGoal}</p>
               </div>
 

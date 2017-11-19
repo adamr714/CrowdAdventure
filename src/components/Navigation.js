@@ -51,6 +51,7 @@ export class Navigation extends React.Component {
               <div className="row">
                 <div className="col-12 navigation">
                   <nav>
+                       <Link to={'#'} id="menu-icon"></Link>
                   <ul>
                     {links}
                   </ul> 

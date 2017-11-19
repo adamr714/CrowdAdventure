@@ -37,7 +37,7 @@ export class Home extends React.Component {
               <div className="row adventureContainer" >
 
                   <div className="col-6">
-                     <img className="image_small" src={item.image} />
+                     <img className="image_small" src={item.image} alt={item.projectTitle} />
                   </div>
 
                   <div className="col-6">
@@ -64,7 +64,7 @@ export class Home extends React.Component {
           <HomeCarousel />
           <div className="row">
           
-            <h2 className="white">Recently Launched</h2>
+            <h2 className="white">Featured:</h2>
             {launch}
             
           </div>

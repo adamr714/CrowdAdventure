@@ -12,13 +12,24 @@ export class Profile extends React.Component {
 
       render() {
         return(
-          <div>
+          <div className="profile">
               <div className="row">
-             <h2>Profile</h2>
+             
 
-             <h3>Projects Backed</h3>
+             <h3 className="white">Adventures Backed</h3>
+             <div ref="created">
+                <p className="white">No created Adventures</p>
+                </div>
 
-             <h3>Projects Created</h3>
+
+                
+
+             <h3 className="white">Adventures Created</h3>
+             <div ref="backed">
+             <p className="white"> No backed Adventures</p>
+                </div>
+             
+
              </div>
           </div>
         );
