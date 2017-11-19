@@ -22,7 +22,7 @@ export class Navigation extends React.Component {
       
       render() {
         let links = [];
-
+  
         links.push(<li key={1}><NavLink to={'/home'}>Home</NavLink></li>);
         links.push(<li key={2}><NavLink to={'/about'}>About Us</NavLink></li>);
 

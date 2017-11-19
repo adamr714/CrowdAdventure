@@ -22,9 +22,8 @@ export class ViewProjects extends React.Component {
     hashHistory.push('/view/' + projectName)
   }
 
-
       render() {
-        const prelaunch = this.state.adventures.map((item, index) => {
+          const prelaunch = this.state.adventures.map((item, index) => {
           let time = new Date();
           let currentTime = Date.parse(time);
           let endDate = Date.parse(item.endDate);
@@ -69,7 +68,7 @@ export class ViewProjects extends React.Component {
 
           let fundingGoal = item.fundingGoal;
           let correctFundingGoal = fundingGoal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-          
+
           if (item.phase === "launch" && publish > 0)  {
             return (
               <div className="col-12" key={index}>
