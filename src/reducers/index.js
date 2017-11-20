@@ -30,8 +30,38 @@ export const userReducer = (state=initialState, action) => {
         return adventureCreationFailed(action, state);
     }
     
+    if (action.type === actions.BACKED_ADVENTURE) {
+        return backedAdventure(action, state);
+    }
+    
+    if (action.type === actions.DELETE_BACKED_ADVENTURE) {
+        return deleteBackedAdventure(action, state);
+    }
+
+    if (action.type === actions.BACKED_ADVENTURE_FAIL) {
+        return backedAdventureFailed(action, state);
+    }
+
     return state;
 };
+
+function backedAdventureFailed(action, state) {
+    let backedFail = Object.assign({}, state, {backedFailureMessage: "You must be logged in to back an adventure"});
+    console.log("Log in to back an adventure");
+    return backedFail;
+}
+
+function deleteBackedAdventure(action, state) {
+    let deletedAdventure = Object.assign({}, state, {backedSuccessMessage: "You are no longer an Adventurer on this project :-("});
+    console.log("You are no longer an adventurer");
+    return deletedAdventure;
+}
+
+function backedAdventure(action, state) {
+    let backed = Object.assign({}, state, {backedSuccessMessage: "You are now an Adventurer!"});
+    console.log("You are now an Adventurer");
+    return backed;
+}
 
 function userCreated(action, state) {
     let neville = Object.assign({}, state, {creationSuccessMessage: "You are now signed up, please log in."});

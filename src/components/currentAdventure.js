@@ -1,6 +1,7 @@
 import React from 'react';
 import http from '../services/http';
-// import {hashHistory} from 'react-router';
+import {connect} from 'react-redux';
+import {hashHistory} from 'react-router';
 
 export class CurrentAdventure extends React.Component {
   constructor(props) {
@@ -14,7 +15,6 @@ export class CurrentAdventure extends React.Component {
           projectTitle: props.params.projectTitle
       };
       this.onButtonClick = this.onButtonClick.bind(this)
-      
   }
   
   async componentDidMount() {
@@ -23,17 +23,12 @@ export class CurrentAdventure extends React.Component {
   };
 
   onButtonClick() {
-    this.setState({
-      textValue: "Backed"
-  });
-
-  // console.log(this.state.adventure.text);
+      this.setState({
+        textValue: "Backed"
+    });
   }
 
     render() {
-      // console.log(this.state.adventure.fundingGoal);
-      // let fundingGoal = this.state.adventure.fundingGoal;
-      // console.log(fundingGoal);
       console.log(this.state.adventure.text);
       const rewardDetails = this.state.adventure.rewards.map((item, index) => {
         let rewardLevel = item.amount;
@@ -50,10 +45,7 @@ export class CurrentAdventure extends React.Component {
 
                   <div>                  
                    <button className="button_adventure" onClick={this.onButtonClick}>Join this Adventure</button>
-                  
-                        
-                       
-                                    </div>
+                  </div>
 
               </div>
             </div>
@@ -78,20 +70,19 @@ export class CurrentAdventure extends React.Component {
 
               <div className="col-6">
                 {rewardDetails}
+              </div>
             </div>
-            </div>
-
         </div>  
       );
     }
-  
 }
 
-export default CurrentAdventure;
-
-
-
-
+const mapStateToProps = (state, props) => ({
+  
+});
+   
+export default connect(mapStateToProps)(CurrentAdventure);
+   
      
 
       

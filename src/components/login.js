@@ -34,9 +34,7 @@ const traci = (state, props) => ({
     message: state.user.loggedInMessage 
 });
 
-// const loggedInCorrectly = (state, props) => ({
-//   data: state,
-// });
+
 
 
 export default connect(traci)(LogIn);

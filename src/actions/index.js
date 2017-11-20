@@ -143,3 +143,21 @@ export const createAdventureFail = (error) => {
     type: CREATE_ADVENTURE_FAIL,
     error: error
 }};
+
+export const BACKED_ADVENTURE = 'BACKED_ADVENTURE';
+export const backedAdventureSuccess = () => ({
+    type: BACKED_ADVENTURE
+});
+
+export const BACKED_ADVENTURE_FAIL = 'BACKED_ADVENTURE_FAIL';
+export const backedAdventureFail = () => ({
+    type: BACKED_ADVENTURE_FAIL
+});
+
+export const DELETE_BACKED_ADVENTURE = 'DELETE_BACKED_ADVENTURE';
+export const deleteBackedAdventure = () => ({
+    type: DELETE_BACKED_ADVENTURE
+});
+
+
+
