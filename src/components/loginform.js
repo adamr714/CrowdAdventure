@@ -4,6 +4,7 @@ import { Form, Text } from 'react-form'
 import store from '../store';
 
 import * as actions from '../actions/index';
+import { values } from 'redux-form';
 
 
 export class LoginForm extends React.Component {
@@ -20,6 +21,7 @@ export class LoginForm extends React.Component {
                     console.log('Success!', values);
                     console.log(`Submitting login form - ${values.email} - ${values.password}`);
                     store.dispatch(actions.userLogin(values.email, values.password));
+
                 }}
                     validate={({ email, password }) => {
                         return {
@@ -40,8 +42,7 @@ export class LoginForm extends React.Component {
                             field='password'
                             placeholder= 'Password'
                         />
-
-
+                        
                         <button type='submit' className="button">Log In</button>
                         </form>
                     )

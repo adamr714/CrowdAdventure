@@ -44,7 +44,7 @@ export class Navigation extends React.Component {
           <div className="header">
               <div className="row">
                 <div className="col-12 logo">
-                  <img src="images/CrowdAdventure.png" alt="CrowdAdventure Logo" />
+                  <Link to={'/home'}><img src="images/CrowdAdventure.png" alt="CrowdAdventure Logo" /></Link>
                 </div>
               </div>
 

@@ -317,7 +317,8 @@ p.creator {
   padding: 10px;
   margin-top: 2em;
   display: block;
-  /* width: 100%; */
+  width: 100%;
+  height: auto;
 }
 
 p.adventureSoloTitle {
@@ -342,6 +343,17 @@ p.individual_title {
 
 .rewards {
   margin-top: 1em;
+}
+
+.message {
+  /* background-color: rgba(255,255,255, .4); */
+  /* background-color: white;
+  padding: .5em; */
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  /* border: 1px solid crimson; */
+  /* border-radius: 5px; */
+  color: white;
 }
 
 @media only screen and (max-width: 400px) {

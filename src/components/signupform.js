@@ -20,13 +20,16 @@ export class SignUpForm extends React.Component {
                     onSubmit={(values) => {
                         console.log('Success!', values);
                         console.log(`Submitting form within our control - ${values.name} - ${values.email} - ${values.password}`);
+                        console.log(values.password);
+                        console.log(values.passwordConfirm);
                         store.dispatch(actions.createUser(values.name, values.email, values.password));
                     }}
-                    validate={({ name, password, email }) => {
+                    validate={({ name, password, email, passwordConfirm }) => {
                     return {
                         name: !name ? 'A name is required' : null,
                         password: (!password || password.length < 6) ? 'A password of 6 or more characters is required' : null,
-                        email: (!emailRegex.test(email)) ? 'Invalid e-mail': null
+                        email: (!emailRegex.test(email)) ? 'Invalid e-mail': null,
+                        passwordConfirm : (password === passwordConfirm) ? 'Passwords must match' : null                                           
                     }
                     }}
                 >
@@ -48,6 +51,11 @@ export class SignUpForm extends React.Component {
                             placeholder= 'Password'
                         />
 
+                         <Text
+                            field='passwordConfirm'
+                            placeholder= 'Password Confirm'
+                        
+                        />
 
                         <button type='submit' className="button">Sign Up</button>
                         </form>

@@ -57,7 +57,9 @@ export class CurrentAdventure extends React.Component {
        
         <div className="individual">
             <div className="row">
+              <div className="col-12">
                 <img className="image_center" src={this.state.adventure.image} alt={this.state.adventure.projectTitle}/>
+              </div>  
             </div> 
 
             <div className="row">
