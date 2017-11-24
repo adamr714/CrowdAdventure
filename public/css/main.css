@@ -187,7 +187,7 @@ p.pull_quote {
 
 input, textarea {
 	width: 17em;
-	font-size:  1em;
+	font-size:  1.3em;
     display: block;
     width: 100%;
     height: 2em;
@@ -216,7 +216,7 @@ input, textarea {
 	margin-left: 0 auto;
 	margin-right: 0 auto;
     padding: .5em;
-    font-size: 1em;
+    font-size: 1.3em;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .1em;
@@ -354,6 +354,20 @@ p.individual_title {
   /* border: 1px solid crimson; */
   /* border-radius: 5px; */
   color: white;
+}
+
+.loginForm {
+  background-color: rgba(255,255,255,.6);
+}
+
+.demo {
+  text-align: center;
+  background-color: rgba(204, 215, 255, 1);
+  line-height: 156%;
+  padding: .5em;
+  border: 1px solid crimson;
+  border-radius: 10px;
+  margin-top: 2em;
 }
 
 @media only screen and (max-width: 400px) {

@@ -1,5 +1,6 @@
 import React from 'react';
-import SignUpForm from './signupform';
+// import SignUpForm from './signupform';
+import SimpleForm from './newSignUpForm';
 import {connect} from 'react-redux';
 
 export class SignUp extends React.Component {
@@ -8,7 +9,6 @@ export class SignUp extends React.Component {
       this.state = {
 
       };
-      // this.onClick = this.onClick.bind(this);
   }
 
 
@@ -22,10 +22,14 @@ export class SignUp extends React.Component {
             
               <p className="pull_quote"><em>"I've never risked anything and I'm really happy and successful" &mdash; No one ever</em></p>
 
+
+
+
+
               <div className="message">{this.props.message}</div> 
 
-              <SignUpForm /> 
-
+              {/* <SignUpForm />  */}
+              <SimpleForm />
               
               </div>
             </div>

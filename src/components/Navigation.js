@@ -38,7 +38,7 @@ export class Navigation extends React.Component {
           links.push(<li key={6}><NavLink to={'/signup'}>Sign Up</NavLink></li>);
         } else {
           links.push(<li key={7}><Link onClick={this.onLogoutClick} to={'/'}>Logout</Link></li>);
-          links.push(<li key={8}><NavLink to={'/profile'}>Profile</NavLink></li>);
+          // links.push(<li key={8}><NavLink to={'/profile'}>Profile</NavLink></li>);
         }
         return(
           <div className="header">

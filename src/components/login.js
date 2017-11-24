@@ -1,5 +1,6 @@
 import React from 'react';
-import LoginForm from './loginform';
+// import LoginForm from './loginform';
+import SimpleForm from './newLoginForm';
 import {connect} from 'react-redux';
 
 export class LogIn extends React.Component {
@@ -8,7 +9,6 @@ export class LogIn extends React.Component {
       this.state = {
 
       };
-      // this.onClick = this.onClick.bind(this);
   }
 
       render() {
@@ -16,9 +16,18 @@ export class LogIn extends React.Component {
           <div>
             <div className="login">
                 <div className="row">
+
                 <p className="pull_quote"><em>Let the adventure begin!</em></p>
+
                 <div className="message">{this.props.message}</div>
-                <LoginForm /> 
+                {/* <LoginForm />  */}
+                <SimpleForm />
+
+                <p className="demo">If you are interested in logging in as a demo user, please use: <br />
+              <strong>Email:</strong> Demo@demo.com<br />
+              <strong>Password:</strong> demo</p>
+
+
                 </div> 
             </div>
           </div>    
@@ -32,8 +41,5 @@ const traci = (state, props) => ({
     message: state.user.creationSuccessMessage,
     message: state.user.loggedInMessage 
 });
-
-
-
 
 export default connect(traci)(LogIn);
