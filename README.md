@@ -2,15 +2,19 @@
 
 <p>Much like the KickStarter site, when fully developed, with a secure payment endpoint (e.g. Stripe), users will be able to back Adventures and receive rewards when the projects is fully-funded. </p>
 
-<img src="http://www.adamr714.com/images/CrowdAdventure.jpg" alt="CrowdAdventure Screenshots/>
+<img src="http://www.adamr714.com/images/CrowdAdventure.jpg" alt="CrowdAdventure Screenshots" />
 
 <h2>Getting Started:</h2>
-> git clone https://github.com/adamr714/love_you_more.git
-> cd CrowdAdventure
-> npm install
+
+```> git clone https://github.com/adamr714/love_you_more.git```
+
+```> cd CrowdAdventure```
+
+```> npm install```
 
 <h2>Launching:</h2>
-> npm start
+
+```> npm start```
 
 <p>Note: Due to this project using promises Node.js version 7 or greater must be used. To determine your version on Node, please type node –v from your terminal window.</p>
 
