@@ -1,4 +1,4 @@
-<p>CrowdAdventures is a responsive full-stack (i.e. Mongo, Express, React and Node) app that allows users to create crowd funding Adventures (projects) for other to back and back other people’s adventures. Users must be logged in to create or back adventures.</p>
+<p>CrowdAdventures is a responsive full-stack (i.e. Mongo, Express, React and Node) app that allows users to create crowd funding Adventures (projects) for others to back and back other people’s adventures. Users must be logged in to create or back adventures.</p>
 
 <p>Much like the KickStarter site, when fully developed, with a secure payment endpoint (e.g. Stripe), users will be able to back Adventures and receive rewards when the projects is fully-funded. </p>
 
