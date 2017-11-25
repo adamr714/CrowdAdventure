@@ -59,7 +59,7 @@ export class CurrentAdventure extends React.Component {
         let reward = rewardLevel.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 
         let joinButton = null;
-        if (self.state.joinedReward == null) {
+        if (http._token != null && self.state.joinedReward == null) {
           joinButton = <div>
                         <button className="button_adventure" data-adventureID={adventureId} data-rewardID={item._id} onClick={this.onButtonClick}>Join this Adventure</button>
                       </div>;
