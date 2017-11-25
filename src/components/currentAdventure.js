@@ -18,8 +18,8 @@ export class CurrentAdventure extends React.Component {
   }
   
   async componentDidMount() {
-    let adventure = await http.get('adventures/' + this.state.projectTitle + '/');
-    this.setState({adventure}); 
+    this.updateAdventureDetails();    
+    // this.setState({adventure}); 
   };
 
   onButtonClick() {
@@ -28,32 +28,29 @@ export class CurrentAdventure extends React.Component {
     });
   }
 
-  // componentDidMount() {
-  //   this.updateAdventureDetails();
-  // };
+  async updateAdventureDetails() {
+    let adventure = await http.get('adventures/' + this.state.projectTitle + '/');
+    let joinedRewards=null;
+    try {
+      joinedRewards = await http.get('join/rewards/' + adventure._id);
+    } catch (err) {
+      console.log('The user might not be logged in');
+    }
+    debugger;
+    console.log(adventure)
+    this.setState({adventure:adventure, joinedRewards: joinedRewards});
+  }
 
-  // async updateAdventureDetails() {
-  //   let adventures = await http.get('adventures');
-  //   let joinedRewards=null;
-  //   try {
-  //     joinedRewards = await http.get('join/adventures._id');
-  //   } catch (err) {
-  //     console.log('The user might not be logged in');
-  //   }
-  //   console.log(adventures)
-  //   this.setState({adventures:adventures, joinedRewards: joinedRewards});
-  // }
+  async onButtonClick(event) {
+    // let projectName = event.target.getAttribute('data-project')
+    let adventureId = event.target.getAttribute('data-adventureID');
+    let rewardId = event.target.getAttribute('data-rewardID');
+    // hashHistory.push('/view/' + projectName)
 
-  // async onButtonClick(event) {
-  //   // let projectName = event.target.getAttribute('data-project')
-  //   let adventureId = event.target.getAttribute('data-adventureID');
-  //   let rewardId = event.target.getAttribute('data-rewardID');
-  //   // hashHistory.push('/view/' + projectName)
-
-  //   //Join the adventure - REST API Call (join/create)
-  //   await http.post('join/create', {adventureID: adventureId, rewardID: rewardId});
-  //   this.updateAdventureDetails();
-  // }
+    //Join the adventure - REST API Call (join/create)
+    await http.post('join/create', {adventureID: adventureId, rewardID: rewardId});
+    this.updateAdventureDetails();
+  }
 
   
     render() {
