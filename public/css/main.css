@@ -335,6 +335,10 @@ p.adventureSoloTitle {
   margin-bottom: 1em;
 }
 
+.backed {
+  background-color:gray;
+}
+
 p.individual_title {
   font-size: 1.5em;
   font-weight: bold;
