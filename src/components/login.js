@@ -39,7 +39,7 @@ export class LogIn extends React.Component {
 const traci = (state, props) => ({
     data: state.user.user,
     message: state.user.creationSuccessMessage,
-    message: state.user.loggedInMessage 
+    // message: state.user.loggedInMessage 
 });
 
 export default connect(traci)(LogIn);

@@ -33,44 +33,13 @@ export const createUser = (name, email, password) => dispatch => {
     });
 };
 
-
-// export const createAdventure = (projectTitle, category, phase, shortDescription, longDescription, rewards, fundingGoal) => dispatch => {
-//     const url = 'adventures/create';
-//     console.log(JSON.stringify({projectTitle: projectTitle, category: category, phase: phase, shortDescription: shortDescription, longDescription: longDescription, rewards: rewards, fundingGoal: fundingGoal}));
-//     return fetch(url, {
-//         method: "POST",
-//         body: JSON.stringify({projectTitle: projectTitle, category: category, phase: phase, shortDescription: shortDescription, longDescription: longDescription, rewards: rewards, fundingGoal: fundingGoal}),  //just pass the instance
-//         headers: new Headers({
-//             'Content-Type': 'application/json',
-//             Accept: 'application/json',
-//           })
-//       }).then(response => {
-//         if (!response.ok) {
-//             const error = new Error(response.statusText)
-//             error.response = response
-//             throw error;
-//         }
-//         return response;
-//     })
-//     .then(response => {
-//         return response.json();
-//     })
-//     .then(data => {
-//         return dispatch(createAdventureSuccess())
-//     })
-//     .catch(async error => {
-//         let json = await error.response.json();      
-//         return dispatch(createAdventureFail(json.message))
-//     });
-// };
-
 export const createAdventure = (data) => async dispatch => {
     const url = 'adventures/create';
 
     try {
         let createNewAdventure = await http.post(url,data);
         console.log('Adventure created successfully.');
-        hashHistory.push('/profile')
+        hashHistory.push('/view')
         return dispatch(createAdventureSuccess());
     } catch (err) {
         console.log('You failed to create this adventure. Error: ' + err);

@@ -38,39 +38,7 @@ export class ViewProjects extends React.Component {
                 <div className="row adventureContainer" >
 
                     <div className="col-6">
-                       <img className="image_small" src={item.image} />
-                    </div>
-
-                    <div className="col-6">
-                      <p className="title">{item.projectTitle}</p>
-                      <p className="creator">{"Created By: " + item.createdBy}</p>
-                      <p className="description">{item.shortDescription}</p>
-                      <p className="rewards">{"Number of Rewards: " + item.rewards.length}</p>
-                      <p className="goal">{"Funding Goal: $" + correctFundingGoal}</p>
-                      {/* <p className="">{"# of Adventures: " + item.adventures}</p>
-                      <p className="">{"% Funded " + item.funded}</p> */}
-                    </div>
-
-                    <div>
-                      <button className="button_adventure" data-project={item.projectTitle} onClick={this.onButtonClick}>Join this Adventure</button>
-                    </div>
-                </div>
-              </div>
-            ) 
-          } 
-        })
-
-        const launch = this.state.adventures.map((item, index) => {
-          let fundingGoal = item.fundingGoal;
-          let correctFundingGoal = fundingGoal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-
-          if (item.phase === "launch")  {
-            return (
-              <div className="col-12" key={index}>
-                <div className="row adventureContainer" >
-
-                    <div className="col-6">
-                       <img className="image_small" src={item.image} />
+                       <img className="image_small" src={item.image} alt={item.projectTitle}/>
                     </div>
 
                     <div className="col-6">
@@ -92,17 +60,22 @@ export class ViewProjects extends React.Component {
           } 
         })
    
-        const fulfilled = this.state.adventures.map((item, index) => {
+        const launch = this.state.adventures.map((item, index) => {
+          // let time = new Date();
+          // let currentTime = Date.parse(time);
+          // let endDate = Date.parse(item.endDate);
+          // let publish = endDate - currentTime;
+
           let fundingGoal = item.fundingGoal;
           let correctFundingGoal = fundingGoal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 
-          if (item.phase === "fulfilled")  {
+          if (item.phase === "launched")  {
             return (
               <div className="col-12" key={index}>
                 <div className="row adventureContainer" >
 
                     <div className="col-6">
-                       <img className="image_small" src={item.image} />
+                       <img className="image_small" src={item.image} alt={item.projectName}/>
                     </div>
 
                     <div className="col-6">
@@ -123,6 +96,76 @@ export class ViewProjects extends React.Component {
             ) 
           } 
         })
+
+        const fulfilled = this.state.adventures.map((item, index) => {
+          // let time = new Date();
+          // let currentTime = Date.parse(time);
+          // let endDate = Date.parse(item.endDate);
+          // let publish = endDate - currentTime;
+
+          let fundingGoal = item.fundingGoal;
+          let correctFundingGoal = fundingGoal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+
+          if (item.phase === "fulfillment")  {
+            return (
+              <div className="col-12" key={index}>
+                <div className="row adventureContainer" >
+
+                    <div className="col-6">
+                       <img className="image_small" src={item.image} alt={item.projectName} />
+                    </div>
+
+                    <div className="col-6">
+                      <p className="title">{item.projectTitle}</p>
+                      <p className="creator">{"Created By: " + item.createdBy}</p>
+                      <p className="description">{item.shortDescription}</p>
+                      <p className="rewards">{"Number of Rewards: " + item.rewards.length}</p>
+                      <p className="goal">{"Funding Goal: $" + correctFundingGoal}</p>
+                      {/* <p className="">{"# of Adventures: " + item.adventures}</p>
+                      <p className="">{"% Funded " + item.funded}</p> */}
+                    </div>
+
+                    <div>
+                      <button className="button_adventure" data-project={item.projectTitle} onClick={this.onButtonClick}>Join this Adventure</button>
+                    </div>
+                </div>
+              </div>
+            ) 
+          } 
+        })
+
+
+        // const fulfilled = this.state.adventures.map((item, index) => {
+        //   let fundingGoal = item.fundingGoal;
+        //   let correctFundingGoal = fundingGoal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+
+        //   if (item.phase === "fulfilled")  {
+        //     return (
+        //       <div className="col-12" key={index}>
+        //         <div className="row adventureContainer" >
+
+        //             <div className="col-6">
+        //                <img className="image_small" src={item.image} />
+        //             </div>
+
+        //             <div className="col-6">
+        //               <p className="title">{item.projectTitle}</p>
+        //               <p className="creator">{"Created By: " + item.createdBy}</p>
+        //               <p className="description">{item.shortDescription}</p>
+        //               <p className="rewards">{"Number of Rewards: " + item.rewards.length}</p>
+        //               <p className="goal">{"Funding Goal: $" + correctFundingGoal}</p>
+        //               {/* <p className="">{"# of Adventures: " + item.adventures}</p>
+        //               <p className="">{"% Funded " + item.funded}</p> */}
+        //             </div>
+
+        //             <div>
+        //               <button className="button_adventure" data-project={item.projectTitle} onClick={this.onButtonClick}>Join this Adventure</button>
+        //             </div>
+        //         </div>
+        //       </div>
+        //     ) 
+        //   } 
+        // })
 
         return(
           <div className="view">

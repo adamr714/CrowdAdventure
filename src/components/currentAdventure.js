@@ -1,7 +1,7 @@
 import React from 'react';
 import http from '../services/http';
 import {connect} from 'react-redux';
-import {hashHistory} from 'react-router';
+// import {hashHistory} from 'react-router';
 
 export class CurrentAdventure extends React.Component {
   constructor(props) {
@@ -22,11 +22,11 @@ export class CurrentAdventure extends React.Component {
     // this.setState({adventure}); 
   };
 
-  onButtonClick() {
-      this.setState({
-        textValue: "Backed"
-    });
-  }
+  // onButtonClick() {
+  //     this.setState({
+  //       textValue: "Backed"
+  //   });
+  // }
 
   async updateAdventureDetails() {
     let adventure = await http.get('adventures/' + this.state.projectTitle + '/');
@@ -50,7 +50,6 @@ export class CurrentAdventure extends React.Component {
 
   
   render() {
-      console.log(this.state.adventure.text);
       let adventureId = this.state.adventure._id;
       let self = this;
 
@@ -59,11 +58,20 @@ export class CurrentAdventure extends React.Component {
         let reward = rewardLevel.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
 
         let joinButton = null;
-        if (http._token != null && self.state.joinedReward == null) {
+        if (http._token == null) {
           joinButton = <div>
-                        <button className="button_adventure" data-adventureID={adventureId} data-rewardID={item._id} onClick={this.onButtonClick}>Join this Adventure</button>
+                        <button className="button_adventure" data-adventureID={adventureId} data-rewardID={item._id} onClick={this.onButtonClick}>Please Login to join this Adventure</button>
                       </div>;
-        } 
+        } else if (http._token != null && self.state.joinedReward == null) {
+            joinButton = <div>
+                          <button className="button_adventure" data-adventureID={adventureId} data-rewardID={item._id} onClick={this.onButtonClick}>Join this Adventure</button>
+                        </div>;
+          } else {
+          joinButton = 
+          <div> 
+            <button className="button_adventure" data-adventureID={adventureId} data-rewardID={item._id} onClick={this.onButtonClick} disabled>This adventure has already been backed!</button>
+          </div>
+        }
 
         let backedClassName = "";
         if (self.state.joinedReward != null && self.state.joinedReward.rewardID == item._id) {

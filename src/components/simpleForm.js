@@ -4,7 +4,7 @@ import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import 'react-widgets/dist/css/react-widgets.css';
 import Moment from 'moment';
 import momentLocalizer from 'react-widgets-moment';
-import {connect} from 'react-redux';
+// import {connect} from 'react-redux';
 import store from '../store';
 import * as actions from '../actions/index';
 
@@ -23,17 +23,17 @@ const validateField = ({
   </div>
 )
 
-const validateSelect = ({
-  input, label, type, meta: { touched, error, warning }
-}) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <input {...input} placeholder={label} />
-      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-    </div>
-  </div>
-)
+// const validateSelect = ({
+//   input, label, type, meta: { touched, error, warning }
+// }) => (
+//   <div>
+//     <label>{label}</label>
+//     <div>
+//       <input {...input} placeholder={label} />
+//       {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+//     </div>
+//   </div>
+// )
 
 const validate = values => {
   const errors = {}
