@@ -33,14 +33,14 @@ export class Home extends React.Component {
         let correctFundingGoal = fundingGoal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
         if (item.phase === "prelaunch" && publish > 0)  {
           return (
-            <div className="col-12" key={index}>
+            <div className="col-6" key={index}>
               <div className="row adventureContainer" >
+                  <div className="col-12">
 
-                  <div className="col-6">
                      <img className="image_small" src={item.image} alt={item.projectTitle} />
                   </div>
 
-                  <div className="col-6">
+                  <div className="col-12">
                     <p className="title">{item.projectTitle}</p>
                     <p className="creator">{"Created By: " + item.createdBy}</p>
                     <p className="description">{item.shortDescription}</p>
@@ -51,7 +51,7 @@ export class Home extends React.Component {
                   </div>
 
                   <div>
-                    <button className="button_adventure" data-project={item.projectTitle} onClick={this.onButtonClick}>Join this Adventure</button>
+                    <button className="button_adventure" data-project={item.projectTitle} onClick={this.onButtonClick}>Join this Adventure<i className="fa fa-angle-double-right" aria-hidden="true"></i></button>
                   </div>
               </div>
             </div>
@@ -60,13 +60,24 @@ export class Home extends React.Component {
       })
 
       return(
-        <div className="adventure">
-          <HomeCarousel />
+        <div className="">
+          {/* <HomeCarousel /> */}
+
           <div className="row">
-          
-            <h2 className="white">Featured:</h2>
-            {launch}
+            <div className="col-12">
+              <div className="whatis">
+              <p><strong>What is CrowdAdventure?</strong> <br />CrowdAdventure takes the pressure off of creators by allowing them the freedom of CrowdFunding with the backing of 
+                professionals guiding them along the way. It also supports the backers (investors) by giving them the guarantee that they will either get the 
+                product in a timely manner or get their money back.</p>
+              </div>     
+            </div>
+          </div>
+                  
+          <div className="row">
+              {/* <h2 className="">Featured:</h2> */}
+              {launch}
             
+
           </div>
         </div>  
       );

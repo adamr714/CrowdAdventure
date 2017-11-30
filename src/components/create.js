@@ -12,9 +12,8 @@ export class Create extends React.Component {
 
       render() {
         return(
-          <div className="create">
+          <div className="">
             <div className="row">
-             <h2>Create a Project</h2>
             </div> 
              {/* <CreateForm />  */}
              <SimpleForm onSubmit={this.submit}/>

@@ -69,7 +69,7 @@ export class CurrentAdventure extends React.Component {
           } else {
           joinButton = 
           <div> 
-            <button className="button_adventure" data-adventureID={adventureId} data-rewardID={item._id} onClick={this.onButtonClick} disabled>This adventure has already been backed!</button>
+            <button className="button_adventure" data-adventureID={adventureId} data-rewardID={item._id} onClick={this.onButtonClick} disabled>Successfully backed! Thank you! </button>
           </div>
         }
 

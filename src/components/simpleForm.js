@@ -11,29 +11,64 @@ import * as actions from '../actions/index';
 Moment.locale('en');
 momentLocalizer();
 
-const validateField = ({
-  input, label, type, meta: { touched, error, warning }
-}) => (
+let time = new Date();
+let currentDate = Date.parse(time);
+
+const category = ['Game', 'Publishing', 'Comics', 'Dice']
+const phase = ['prelaunch', 'launched', 'fulfillment']
+
+
+
+const renderField = ({ input, label, type, placeholder, className, meta: { touched, error } }) => (
   <div>
     <label>{label}</label>
     <div>
-      <input {...input} placeholder={label} type={type} />
-      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+      <input {...input} placeholder={placeholder} className={className} type={type} />
+      {touched && error && <span>{error}</span>}
     </div>
   </div>
 )
 
-// const validateSelect = ({
-//   input, label, type, meta: { touched, error, warning }
-// }) => (
-//   <div>
-//     <label>{label}</label>
-//     <div>
-//       <input {...input} placeholder={label} />
-//       {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-//     </div>
-//   </div>
-// )
+const renderCategory = ({ input, meta: { touched, error } }) => (
+  <div>
+    <select {...input}>
+      <option value="">Category</option>
+      {category.map(val => (
+        <option value={val} key={val}>
+          {val}
+        </option>
+      ))}
+    </select>
+    {touched && error && <span>{error}</span>}
+  </div>
+)
+
+const renderPhase = ({ input, meta: { touched, error } }) => (
+  <div>
+    <select {...input}>
+      <option value="">Phase</option>
+      {phase.map(val => (
+        <option value={val} key={val}>
+          {val}
+        </option>
+      ))}
+    </select>
+    {touched && error && <span>{error}</span>}
+  </div>
+)
+
+const renderDateTimePicker = ({ input: { onChange, value }, meta: { touched, error }, showTime }) => (
+<div>  
+<DateTimePicker
+  onChange={onChange}
+  format="DD MMM YYYY"
+  time={showTime}
+  value={!value ? null : new Date(value)}
+/>
+{touched && error && <span>{error}</span>}
+</div>
+)
+
 
 const validate = values => {
   const errors = {}
@@ -53,31 +88,30 @@ const validate = values => {
     errors.category = 'Required'
   }
 
+  if (!values.category){
+    errors.category = "Required"
+  }
+
+  if (!values.phase){
+    errors.phase = "Required"
+  }
+
+  if (!values.image){
+    errors.image = "Required"
+  }
+
+  if (!values.startDate){
+    errors.startDate = "Required"
+  } 
+
+  if (!values.endDate){
+    errors.endDate = "Required"
+  } else if (values.endDate < values.startDate) {
+    errors.endDate = "It cannot end before it begins..."
+  }
   return errors
 }
 
-const warn = values => {
-  const warnings = {}
-
-  return warnings
-}
-
-const renderDateTimePicker = ({ input: { onChange, value }, showTime }) =>
-<DateTimePicker
-  onChange={onChange}
-  format="DD MMM YYYY"
-  time={showTime}
-  value={!value ? null : new Date(value)}
-/>
-
-const renderField = ({ input, label, type, meta: { touched, error } }) => (
-  <div>
-    <label>{label}</label>    <div>
-      <input {...input} type={type} placeholder={label} />
-      {touched && error && <span>{error}</span>}
-    </div>
-  </div>
-)
 
 const renderRewards = ({ fields, meta: { error, submitFailed } }) => (
   <ul>
@@ -135,93 +169,21 @@ const SimpleForm = props => {
         store.dispatch(actions.createAdventure(data));
       })}>
 
-      <div>
-        <label>Project Title</label>
-        <div>
-          <Field
-            name="projectTitle"
-            component="input"
-            type="text"
-            component={validateField}
-            placeholder="Project Title"
-          />
-        </div>
+      <Field name="projectTitle" type="text" component={renderField} placeholder="Project Title" label="Project Title" />
+
+      <div> 
+        <label>Category</label>
+        <Field name="category" component={renderCategory} />
       </div>
 
+      <Field name="fundingGoal" type="number" component={renderField} placeholder="Amount Needed to Produce Adventure" label="Funding Goal" />
 
-
-      <div>
-        <label>Category</label> 
-        <div>
-          <Field 
-          name="category" 
-          component="select"
-          type="select"
-          >
-         
-            <option />
-            <option value="Game">Game</option>
-            <option value="Publishing">Publishing</option>
-            <option value="Comics">Comics</option>
-            <option value="Dice">Dice</option>
-          </Field>
-        </div>
+      <div> 
+        <label>Phase</label>
+        <Field name="phase" component={renderPhase} />
       </div>
 
-      <div>
-        <label>Funding Goal</label>
-        <div>
-          <Field
-            name="fundingGoal"
-            component="input"
-            type="number"
-            placeholder="Amount Needed to Succeed"
-            component={validateField}
-          />
-        </div>
-      </div>
-
-      <div>
-        <label>Phase</label> 
-        <div>
-          <Field name="phase" component="select">
-            <option />
-            <option value="prelaunch">Pre-Launch</option>
-            <option value="launched">Launched</option>
-            <option value="fulfillment">Fulfillment</option>
-          </Field>
-        </div>
-      </div>
-
-      <div>
-        <label>Image</label>
-          <div>
-            <Field
-              name="image"
-              component="input"
-              type="text"
-              placeholder="Image URL - Image Should be 400 x 400 px"
-            />
-          </div>
-      </div>
-    
-
-      <div>
-        <label>Start Date</label>
-        <Field
-          name="startDate"
-          showTime={false}
-          component={renderDateTimePicker}
-        />
-      </div>
-      <div>
-        <label>End Date</label>
-        <Field
-          name="endDate"
-          showTime={false}
-          component={renderDateTimePicker}
-        />
-      </div>
+      <Field name="image" type="text" component={renderField} placeholder="Image URL - Image should be 400 x 200px" label="Image URL" />
 
       <div>
         <label>Short Description</label>
@@ -236,6 +198,26 @@ const SimpleForm = props => {
           <Field className="long_description" name="longDescription" component="textarea" />
         </div>
       </div>
+
+      <div>
+        <label>Start Date</label>
+        <Field
+          name="startDate"
+          showTime={false}
+          component={renderDateTimePicker}
+        />
+      </div>
+
+      <div>
+        <label>End Date</label>
+        <Field
+          name="endDate"
+          showTime={false}
+          component={renderDateTimePicker}
+        />
+      </div>
+
+
 
 
       <FieldArray name="rewards" component={renderRewards} />
@@ -261,6 +243,5 @@ export default reduxForm({
   form: 'simple', // a unique identifier for this form
   // dispatch: store.dispatch(actions.userLogin(handleSubmit.short, ));
   validate,
-  warn,
   destroOynUnmount: true
 })(SimpleForm);
