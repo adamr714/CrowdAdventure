@@ -2,6 +2,7 @@ import React from 'react';
 import http from '../services/http';
 import {hashHistory} from 'react-router';
 
+
 export class ViewProjects extends React.Component {
   constructor(props) {
       super(props);
@@ -34,14 +35,14 @@ export class ViewProjects extends React.Component {
 
           if (item.phase === "prelaunch" && publish > 0)  {
             return (
-              <div className="col-12" key={index}>
+              <div className="col-6" key={index}>
                 <div className="row adventureContainer" >
 
-                    <div className="col-6">
+                    <div className="col-12">
                        <img className="image_small" src={item.image} alt={item.projectTitle}/>
                     </div>
 
-                    <div className="col-6">
+                    <div className="col-12">
                       <p className="title">{item.projectTitle}</p>
                       <p className="creator">{"Created By: " + item.createdBy}</p>
                       <p className="description">{item.shortDescription}</p>
@@ -52,7 +53,7 @@ export class ViewProjects extends React.Component {
                     </div>
 
                     <div>
-                      <button className="button_adventure" data-project={item.projectTitle} onClick={this.onButtonClick}>Join this Adventure</button>
+                      <button className="button_adventure" data-project={item.projectTitle} onClick={this.onButtonClick}>Join this Adventure<i className="fa fa-angle-double-right" aria-hidden="true"></i></button>
                     </div>
                 </div>
               </div>
@@ -71,14 +72,14 @@ export class ViewProjects extends React.Component {
 
           if (item.phase === "launched")  {
             return (
-              <div className="col-12" key={index}>
+              <div className="col-6" key={index}>
                 <div className="row adventureContainer" >
 
-                    <div className="col-6">
-                       <img className="image_small" src={item.image} alt={item.projectName}/>
+                    <div className="col-12">
+                       <img className="image_small" src={item.image} alt={item.projectTitle}/>
                     </div>
 
-                    <div className="col-6">
+                    <div className="col-12">
                       <p className="title">{item.projectTitle}</p>
                       <p className="creator">{"Created By: " + item.createdBy}</p>
                       <p className="description">{item.shortDescription}</p>
@@ -89,7 +90,7 @@ export class ViewProjects extends React.Component {
                     </div>
 
                     <div>
-                      <button className="button_adventure" data-project={item.projectTitle} onClick={this.onButtonClick}>Join this Adventure</button>
+                      <button className="button_adventure" data-project={item.projectTitle} onClick={this.onButtonClick}>Join this Adventure<i className="fa fa-angle-double-right" aria-hidden="true"></i></button>
                     </div>
                 </div>
               </div>
@@ -108,14 +109,14 @@ export class ViewProjects extends React.Component {
 
           if (item.phase === "fulfillment")  {
             return (
-              <div className="col-12" key={index}>
+              <div className="col-6" key={index}>
                 <div className="row adventureContainer" >
 
-                    <div className="col-6">
-                       <img className="image_small" src={item.image} alt={item.projectName} />
+                    <div className="col-12">
+                       <img className="image_small" src={item.image} alt={item.projectTitle}/>
                     </div>
 
-                    <div className="col-6">
+                    <div className="col-12">
                       <p className="title">{item.projectTitle}</p>
                       <p className="creator">{"Created By: " + item.createdBy}</p>
                       <p className="description">{item.shortDescription}</p>
@@ -126,7 +127,7 @@ export class ViewProjects extends React.Component {
                     </div>
 
                     <div>
-                      <button className="button_adventure" data-project={item.projectTitle} onClick={this.onButtonClick}>Join this Adventure</button>
+                      <button className="button_adventure" data-project={item.projectTitle} onClick={this.onButtonClick}>Join this Adventure<i className="fa fa-angle-double-right" aria-hidden="true"></i></button>
                     </div>
                 </div>
               </div>
@@ -135,46 +136,20 @@ export class ViewProjects extends React.Component {
         })
 
 
-        // const fulfilled = this.state.adventures.map((item, index) => {
-        //   let fundingGoal = item.fundingGoal;
-        //   let correctFundingGoal = fundingGoal.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
-
-        //   if (item.phase === "fulfilled")  {
-        //     return (
-        //       <div className="col-12" key={index}>
-        //         <div className="row adventureContainer" >
-
-        //             <div className="col-6">
-        //                <img className="image_small" src={item.image} />
-        //             </div>
-
-        //             <div className="col-6">
-        //               <p className="title">{item.projectTitle}</p>
-        //               <p className="creator">{"Created By: " + item.createdBy}</p>
-        //               <p className="description">{item.shortDescription}</p>
-        //               <p className="rewards">{"Number of Rewards: " + item.rewards.length}</p>
-        //               <p className="goal">{"Funding Goal: $" + correctFundingGoal}</p>
-        //               {/* <p className="">{"# of Adventures: " + item.adventures}</p>
-        //               <p className="">{"% Funded " + item.funded}</p> */}
-        //             </div>
-
-        //             <div>
-        //               <button className="button_adventure" data-project={item.projectTitle} onClick={this.onButtonClick}>Join this Adventure</button>
-        //             </div>
-        //         </div>
-        //       </div>
-        //     ) 
-        //   } 
-        // })
-
         return(
-          <div className="view">
+          <div className="">
             <div className="row">
-              <h2 className="white">Pre-Launch Phase</h2>
-              {prelaunch}
-              <h2 className="white">Recently Launched</h2>
+              <h2 className="">Pre-Launch Phase</h2>
+                {prelaunch}
+            </div>
+
+            <div className="row">
+              <h2 className="">Recently Launched</h2>
               {launch}
-              <h2 className="white">Currently Being Fulfilled</h2>
+            </div>
+
+            <div className="row">  
+              <h2 className="">Currently Being Fulfilled</h2>
               {fulfilled}
             </div>
           </div>  
